@@ -1,0 +1,111 @@
+p.error{
+    position: relative;
+    z-index: 1;
+    left: 0;
+    color: #e75252;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 25px;
+}
+
+.error-alert{
+    color: #b94a48;
+}
+
+.display{
+    display: block;
+}
+
+.non-display{
+    display: none;
+}
+
+.login-body .login-wrap .login .user:before{
+    content: "\f007";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    color: #666;
+    font-size: 14px
+}
+
+.login-body .login-wrap .login .user{
+    position: relative;
+}
+
+.login-body .login-wrap .login .user input {
+    padding-left: 30px;
+    border: 1px solid #000 !important;
+    -webkit-box-shadow: rgba(0,0,0,0.6) 0 1px 2px inset,rgba(0,0,0,0.4) 0 1px 3px;
+    -moz-box-shadow: rgba(0,0,0,0.6) 0 1px 2px inset,rgba(0,0,0,0.4) 0 1px 3px;
+    box-shadow: rgba(0,0,0,0.6) 0 1px 2px inset,rgba(0,0,0,0.4) 0 1px 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.remember{
+    text-align: left;
+}
+
+.left-control{
+    float: left;
+    position: absolute;
+    width: 7%;
+    margin: 0;
+    padding: 15px 5px 5px 5px;
+    font-weight: bold;
+    color: #555;
+}
+.left-control .btn-control{
+    position: relative;
+    display: block;
+}
+
+.img-thumb-layout{
+    width: 100%;
+    height: 266px;
+    overflow: scroll;
+}
+.img-thumb-layout .img-item{
+    display: inline-block;
+    margin: 0 0 2px 2px;
+    border: 1px solid #aaa;
+    width: 92px;
+    height: 60px;
+}
+
+.img-thumb-layout .img-item img{
+    width: 80px;
+    height: 60px;
+}
+.plupload-list{
+    width: 100%;
+    height: 261px;
+}
+.plupload_wrapper{
+    min-width: 200px;
+}
+.plupload_button{
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 5px;
+}
+.bootstrap-switch.bootstrap-switch-mini{
+    min-width: 50px;
+}
+
+.btn-icon{
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 5px;
+    background-image: linear-gradient(to top, #dddddd,#fff);
+}
+.btn-icon:hover{
+    background-image: linear-gradient(to bottom, #dddddd,#fff);
+}
+
+.mb-5{
+    margin-bottom: 5px;
+}
