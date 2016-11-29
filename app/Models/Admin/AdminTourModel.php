@@ -10,7 +10,6 @@ namespace App\Models\Admin;
 
 Use DB;
 use App\Models\Admin;
-use Illuminate\Database\QueryException;
 use Mockery\CountValidator\Exception;
 
 class AdminTourModel
@@ -28,10 +27,12 @@ class AdminTourModel
 
         $nationalList = $cmModel->getNationList();
         $locationList = $cmModel->getLocationList();
+        $categoryList = $cmModel->getCategoryListByGroup('T');
 
         $tourInitData = array(
             "nationalList" => $nationalList,
             "locationList" => $locationList,
+            "categoryList" => $categoryList,
         );
 
         return $tourInitData;
@@ -44,12 +45,14 @@ class AdminTourModel
         $nationalList = $cmModel->getNationList();
         $locationList = $cmModel->getLocationList();
         $photoList = $photoModel->getImgReferList('tb_tours', $tourId, 'TOUR_ID');
+        $categoryList = $cmModel->getCategoryListByGroup('T');
 
         $tourDetail = array(
             "adminTourDetail" => $this->getTourDetailMode($tourId),
             "nationalList" => $nationalList,
             "locationList" => $locationList,
             "photoList" => $photoList,
+            "categoryList" => $categoryList,
         );
 
         return $tourDetail;
@@ -74,17 +77,10 @@ class AdminTourModel
                 , 'tb_tours.TOUR_ACT_YN AS tourActive'
                 , 'tb_tours.TOUR_RATE_TOT_STAR AS tourRateStar'
                 , 'tb_tours.TOUR_RATE_TOT_SEQ AS tourRateSeq'
-                , DB::raw('FORMAT((tb_tours.TOUR_RATE_TOT_STAR / tb_tours.TOUR_RATE_TOT_SEQ) *20 , 0) AS tourRate')
-                , DB::raw('DATE_FORMAT(tb_tours.TOUR_CREATE_TIMESTAMP, "%a, %d-%m-%Y") AS crtDt')
-                , 'tb_location.NATIONAL_NM_VI AS ntnNm'
-                , 'tb_location.PROVINCE_NM_VI AS prvNm'
-                , 'tb_img_mgmt.IMG_URL AS imgUrl'
-                , 'tb_img_mgmt.IMG_ALT AS imgAlt'
-                , 'tb_img_mgmt.IMG_TP AS imgTp'
             )
-            ->orderBy('TOUR_RATE_TOT_STAR', 'DESC')
-            ->orderBy('TOUR_RATE_TOT_STAR', 'DESC')
             ->orderBy('TOUR_CREATE_TIMESTAMP', 'DESC')
+            ->orderBy('TOUR_RATE_TOT_STAR', 'DESC')
+            ->orderBy('TOUR_RATE_TOT_STAR', 'DESC')
             ->get();
 
         return $result;
@@ -98,6 +94,7 @@ class AdminTourModel
         $result = DB::table('tb_tours')
             ->leftJoin('tb_location', 'tb_tours.LOCATION_ID', '=', 'tb_location.LOCATION_ID')
             ->leftJoin('tb_img_mgmt', 'tb_tours.TOUR_RPV_IMG_ID', '=', 'tb_img_mgmt.IMG_ID')
+            ->leftJoin('tb_post_grp_connect', 'tb_tours.TOUR_ID', '=', 'tb_post_grp_connect.POST_ID')
             ->where('tb_tours.TOUR_ID', '=', $tourId)
             ->select(
                 'tb_tours.TOUR_ID'
@@ -129,6 +126,7 @@ class AdminTourModel
                 , 'tb_img_mgmt.IMG_URL'
                 , 'tb_img_mgmt.IMG_ALT'
                 , 'tb_img_mgmt.IMG_TP'
+                , 'tb_post_grp_connect.POST_GRP_ID'
             )
             ->orderBy('TOUR_RATE_TOT_STAR', 'DESC')
             ->orderBy('TOUR_RATE_TOT_STAR', 'DESC')

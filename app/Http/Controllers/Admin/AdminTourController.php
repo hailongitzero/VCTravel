@@ -11,8 +11,6 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Http\Controllers\Controller;
-use Symfony\Component\Console\Input;
-use Symfony\Component\DomCrawler\Form;
 
 class AdminTourController extends Controller
 {
@@ -58,6 +56,31 @@ class AdminTourController extends Controller
         $photoModel = new Admin\AdminPhotoModel();
         $photoCtrl = new PhotoController();
 
+        if( $request->input('formAction') == "Save"){
+            $this->validate($request, [
+                'tourTextLink' => 'required|unique:tb_tours,TOUR_TEXT_LINK|max:150',
+            ]);
+        }
+        $this->validate($request, [
+            'tourTitleVi' => 'required|max:150',
+            'tourTitleEn' => 'required|max:150',
+            'tourShrtCntVi' => 'required',
+            'tourShrtCntEn' => 'required',
+            'tourCntVi' => 'required',
+            'tourCntEn' => 'required',
+            'tourScheduleVi' => 'required',
+            'tourScheduleEn' => 'required',
+            'tourLengthVi' => 'required',
+            'tourLengthEn' => 'required',
+            'tourPriceVi' => 'required|numeric',
+            'tourPriceEn' => 'required|numeric',
+            'tourPrmPrice' => 'required|numeric    ',
+            'tourDescVi' => 'required',
+            'tourDescEn' => 'required',
+            'tourKeywordVi' => 'required',
+            'tourKeywordEn' => 'required',
+        ]);
+
         $tourId = $request->input('formAction') == "Save" ? $mdCommonModel->createPostId('tb_tours','TOUR_ID','T'): $request->input('tourId');
         $tourArr = array(
             "TOUR_ID" => $tourId,
@@ -84,13 +107,19 @@ class AdminTourController extends Controller
             "TOUR_KEYWORDS_EN" => $request->input('tourKeywordEn'),
         );
         $fileUploadCnt = $request->input('imgUploadListCnt');
-
+        $cateId = $request->input('tourCategory');
 
         $action = $request->input('formAction');
-        if($action == "Save"){
+        if($action == "Save"){  //Save: Insert --- Update: Update
             $status = $mdAdminTourModel->createTour($tourArr);
+            if ($status == true){
+                $cateStatus = $mdCommonModel->insertPostCategory($tourId, $cateId);
+            }
         }else{
             $status = $mdAdminTourModel->updateTour($tourArr, $tourId);
+            if ($status == true){
+                $cateStatus = $mdCommonModel->updateCategory($tourId, $cateId);
+            }
         }
 
         if ($status == true){

@@ -51,7 +51,6 @@
                                     <td><input type="checkbox" class="switch-checkbox" name="rodTourActive" {{$list->tourActive == 'Y' ? 'checked' : ''}} data-size="mini"></td>
                                     <td>
                                         <a id="tourSave" href="#" class="btn-icon" item-data="{{$list->tourId}}"><i class="icon-save"></i></a>
-                                        <a id="tourImage" href="{{url('admin/tour-image/'.$list->tourId)}}" class="btn-icon" item-data="{{$list->tourId}}"><i class="icon-camera-retro"></i></a>
                                         <a id="tourEdit" href="{{url('admin/tour-edit/'.$list->tourId)}}" class="btn-icon"><i class="icon-edit"></i></a>
                                     </td>
                                 </tr>

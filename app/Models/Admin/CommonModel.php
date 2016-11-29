@@ -9,6 +9,7 @@
 namespace App\Models\Admin;
 
 use DB;
+use Mockery\CountValidator\Exception;
 
 class CommonModel
 {
@@ -53,6 +54,40 @@ class CommonModel
         ;
 
         return $result;
+    }
+
+    public function getCategoryListByGroup($group){
+        $result = DB::table('tb_post_grp')
+            ->where('POST_GRP_ID', 'like', $group.'%')
+            ->select(
+                'POST_GRP_ID',
+                'POST_NM_VI',
+                'POST_LINK'
+            )
+            ->get();
+
+        return $result;
+    }
+
+    public function updateCategory($postId, $cateId){
+        $result = true;
+        try{
+            DB::table('tb_post_grp_connect')
+                ->where('POST_ID', '=', $postId)
+                ->update(['POST_GRP_ID'=>$cateId]);
+        }catch (Exception $e){
+            $result = false;
+        }
+    }
+
+    public function insertPostCategory($postId, $cateId){
+        $result = true;
+        try{
+            DB::table('tb_post_grp_connect')
+                ->insert(['POST_GRP_ID'=>$cateId, 'POST_ID'=>$postId]);
+        }catch (Exception $e){
+            $result = false;
+        }
     }
 
     public function createPostId($tableName, $colId, $prefix){

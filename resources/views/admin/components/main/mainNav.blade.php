@@ -47,74 +47,49 @@
             <a href="dashboard.html"><i class="icon-home icon-white"></i><span>Dashboard</span></a>
         </li>
         <li>
-            <a href="dashboard.html#"><i class="icon-edit icon-white"></i><span>Forms</span><span class="label">4</span></a>
+            <a href="#"><i class="icon-edit icon-white"></i><span>Tour</span></a>
             <ul class="subnav">
                 <li>
-                    <a href="basic-forms.html">Basic forms</a>
+                    <a href="{{ url('admin/tour-list') }}">Tour List</a>
                 </li>
                 <li>
-                    <a href="extended-forms.html">Extended form elements</a>
+                    <a href="{{ url('admin/tour-edit') }}">Add Tour</a>
                 </li>
                 <li>
-                    <a href="form-validation.html">Form validation</a>
-                </li>
-                <li>
-                    <a href="form-wizard.html">Form wizard</a>
+                    <a href="{{ url('admin/tour-edit') }}">Tour Booking</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="dashboard.html#"><i class="icon-th-large icon-white"></i><span>Components</span><span class="label">6</span></a>
+            <a href="#"><i class="icon-edit icon-white"></i><span>News</span></a>
             <ul class="subnav">
                 <li>
-                    <a href="messages.html">Messages &amp; Chat</a>
+                    <a href="{{ url('admin/news-list') }}">News List</a>
                 </li>
                 <li>
-                    <a href="gallery.html">Gallery &amp; thumbs</a>
-                </li>
-                <li>
-                    <a href="icons-buttons.html">Icons &amp; buttons</a>
-                </li>
-                <li>
-                    <a href="ui-elements.html">UI Elements</a>
-                </li>
-                <li>
-                    <a href="bootstrap-elements.html">Bootstrap elements</a>
-                </li>
-                <li>
-                    <a href="grid.html">Grid</a>
+                    <a href="{{ url('admin/news-edit') }}">Add News</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="charts.html"><i class="icon-signal icon-white"></i><span>Charts</span></a>
-        </li>
-        <li>
-            <a href="tables.html"><i class="icon-th-list icon-white"></i><span>Tables</span></a>
-        </li>
-        <li>
-            <a href="error-pages.html"><i class="icon-warning-sign icon-white"></i><span>Error Pages</span></a>
-        </li>
-        <li>
-            <a href="calendar.html"><i class="icon-calendar icon-white"></i><span>Calendar</span></a>
-        </li>
-        <li>
-            <a href="file-management.html"><i class="icon-hdd icon-white"></i><span>File management</span></a>
-        </li>
-        <li>
-            <a href="dashboard.html#"><i class="icon-th icon-white"></i><span>More pages</span><span class="label">4</span></a>
+            <a href="#"><i class="icon-edit icon-white"></i><span>Guides</span></a>
             <ul class="subnav">
                 <li>
-                    <a href="invoice.html">Invoice</a>
+                    <a href="{{ url('admin/guide-list') }}">Guide List</a>
                 </li>
                 <li>
-                    <a href="search-page.html">Search page</a>
+                    <a href="{{ url('admin/guide-edit') }}">Add Guide</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="icon-edit icon-white"></i><span>Pages</span></a>
+            <ul class="subnav">
+                <li>
+                    <a href="{{ url('admin/page-list') }}">Pages List</a>
                 </li>
                 <li>
-                    <a href="user-profile.html">User profile</a>
-                </li>
-                <li>
-                    <a href="blank-page.html">Blank page</a>
+                    <a href="{{ url('admin/page-edit') }}">Add Page</a>
                 </li>
             </ul>
         </li>

@@ -18,6 +18,10 @@ $(document).ready(function() {
         CKEDITOR.replace( 'tourSchEn' );
         CKEDITOR.add;
     }
+    if(document.getElementById("newsCntEn") != null){
+        CKEDITOR.replace( 'newsCntEn' );
+        CKEDITOR.add;
+    }
 
     //switch checkbox style for data table
     $("[class='switch-checkbox']").bootstrapSwitch();

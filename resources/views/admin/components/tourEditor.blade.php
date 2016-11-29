@@ -40,13 +40,13 @@
                                         <div class="control-group">
                                             <label for="titleVi" class="control-label">Tiêu Đề</label>
                                             <div class="controls">
-                                                <input type="text" name="titleVi" id="titleVi" placeholder="Tiêu đề" class="input-xlarge" value="{{$dt->TOUR_TIT_VI}}">
+                                                <input type="text" name="titleVi" id="titleVi" placeholder="Tiêu đề" class="input-xlarge" value="{{$dt->TOUR_TIT_VI}}" required>
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label for="nation" class="control-label">Quốc Gia</label>
+                                            <label for="nation" class="control-label">Địa Điểm</label>
                                             <div class="controls">
-                                                <div class="input-xlarge">
+                                                <div class="input-xmedium">
                                                     <select name="nation" id="nation" class='chosen-select'>
                                                         <option value="{{ $dt->NATIONAL_CD }}">{{ $dt->NATIONAL_NM_VI }}</option>
                                                         @if(isset($nationalList))
@@ -56,10 +56,20 @@
                                                         @endif
                                                     </select>
                                                 </div>
+                                                <div class="input-xmedium">
+                                                    <select name="province" id="province" class='chosen-select'>
+                                                        <option id="prv" class="{{ $dt->NATIONAL_CD }}" value="{{ $dt->LOCATION_ID }}" style="display: none" >{{ $dt->PROVINCE_NM_VI }}</option>
+                                                        @if(isset($locationList))
+                                                            @foreach($locationList as $ll)
+                                                                <option id="prv" class="{{ $ll->NATIONAL_CD }}" value="{{ $ll->LOCATION_ID }}" style="display: none" >{{ $ll->PROVINCE_NM_VI }}</option>
+                                                            @endforeach
+                                                        @endif
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Danh Mục</label>
+                                            <label class="control-label">Trạng Thái</label>
                                             <div class="controls">
                                                 <label class='checkbox' style="width: 40%; display: inline-block">
                                                     <input type="checkbox" name="tourFtr" id="tourFtr" {{ $dt->TOUR_FTR_YN == 'Y'? 'checked': '' }}> Tour nổi bật
@@ -125,9 +135,9 @@
                                             <label for="tourPrcVi" class="control-label">Giá tiền</label>
                                             <div class="controls">
                                                 <div class="input-append">
-                                                    <span class="add-on">VND</span><input type="text" name="tourPrcVi" id="tourPrcVi" placeholder="Giá" class='input-small' value="{{ $dt->TOUR_PRICE_VI }}">
+                                                    <span class="add-on">VND</span><input type="number" name="tourPrcVi" id="tourPrcVi" placeholder="Giá" class='input-small' value="{{ $dt->TOUR_PRICE_VI }}">
                                                     <span class="add-on">$</span>
-                                                    <span class="add-on">USD</span><input type="text" name="tourPrcEn" id="tourPrcEn" placeholder="Price" class='input-small' value="{{ $dt->TOUR_PRICE_EN }}">
+                                                    <span class="add-on">USD</span><input type="number" name="tourPrcEn" id="tourPrcEn" placeholder="Price" class='input-small' value="{{ $dt->TOUR_PRICE_EN }}">
                                                     <span class="add-on">$</span>
                                                 </div>
                                             </div>
@@ -135,7 +145,7 @@
                                         <div class="control-group">
                                             <label for="keywordVi" class="control-label">Từ Khóa</label>
                                             <div class="controls">
-                                                <input type="text" name="keywordVi" id="keywordVi" data-role="tagsinput" value="{{ $dt->TOUR_KEYWORDS_VI }}">
+                                                <input type="text" name="keywordVi" id="keywordVi" data-role="tagsinput" value="{{ $dt->TOUR_KEYWORDS_VI }}" required>
                                             </div>
                                         </div>
                                         <div class="control-group">
@@ -155,17 +165,17 @@
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label for="province" class="control-label">Thành Phố</label>
+                                            <label for="province" class="control-label">Danh Mục</label>
                                             <div class="controls">
                                                 <div class="input-xlarge">
-                                                    <select name="province" id="province" class='chosen-select'>
-                                                        <option id="prv" class="{{ $dt->NATIONAL_CD }}" value="{{ $dt->LOCATION_ID }}" style="display: none" >{{ $dt->PROVINCE_NM_VI }}</option>
-                                                        @if(isset($locationList))
-                                                            @foreach($locationList as $ll)
-                                                                <option id="prv" class="{{ $ll->NATIONAL_CD }}" value="{{ $ll->LOCATION_ID }}" style="display: none" >{{ $ll->PROVINCE_NM_VI }}</option>
+                                                    <select name="category" id="category" class='chosen-select'>
+                                                        @if(isset($categoryList))
+                                                            @foreach($categoryList as $cl)
+                                                                <option id="cate" value="{{ $cl->POST_GRP_ID }}" {{ $cl->POST_GRP_ID == $dt->POST_GRP_ID ? "selected" : "" }}>{{ $cl->POST_NM_VI }}</option>
                                                             @endforeach
                                                         @endif
-                                                    </select></div>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="control-group">
@@ -263,7 +273,7 @@
                                         <div class="control-group">
                                             <label for="keywordEn" class="control-label"></label>
                                             <div class="controls">
-                                                <div class="span12"><input type="text" name="keywordEn" id="keywordEn" data-role="tagsinput" value="{{ $dt->TOUR_KEYWORDS_EN }}"></div>
+                                                <div class="span12"><input type="text" name="keywordEn" id="keywordEn" data-role="tagsinput" value="{{ $dt->TOUR_KEYWORDS_EN }}" required></div>
                                             </div>
                                         </div>
                                         <div class="control-group">
@@ -282,7 +292,7 @@
                                 </form>
                             @endforeach
                         @else
-                            <form id="tourEditorForm" action=" " method="POST" class='form-horizontal form-bordered form-column'>
+                            <form id="tourEditorForm" action="" method="POST" class='form-horizontal form-bordered form-column'>
                                 {{ csrf_field() }}
                                 <input name="_method" type="hidden" value="POST">
                                 <div class="span6">
@@ -293,9 +303,9 @@
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label for="nation" class="control-label">Quốc Gia</label>
+                                        <label for="nation" class="control-label">Địa Điểm</label>
                                         <div class="controls">
-                                            <div class="input-xlarge">
+                                            <div class="input-xmedium">
                                                 <select name="nation" id="nation" class='chosen-select'>
                                                     @if(isset($nationalList))
                                                         @foreach($nationalList as $nl)
@@ -304,10 +314,19 @@
                                                     @endif
                                                 </select>
                                             </div>
+                                            <div class="input-xmedium">
+                                                <select name="province" id="province" class='chosen-select'>
+                                                    @if(isset($locationList))
+                                                        @foreach($locationList as $ll)
+                                                            <option id="prv" class="{{ $ll->NATIONAL_CD }}" value="{{ $ll->LOCATION_ID }}" style="display: none" >{{ $ll->PROVINCE_NM_VI }}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label">Danh Mục</label>
+                                        <label class="control-label">Trạng Thái</label>
                                         <div class="controls">
                                             <label class='checkbox' style="width: 40%; display: inline-block">
                                                 <input type="checkbox" name="tourFtr" id="tourFtr"> Tour nổi bật
@@ -374,10 +393,10 @@
                                         <div class="controls">
                                             <div class="input-append">
                                                 <span class="add-on">VND</span>
-                                                <input type="text" name="tourPrcVi" id="tourPrcVi" placeholder="Giá" class='input-small'>
+                                                <input type="number" name="tourPrcVi" id="tourPrcVi" placeholder="Giá" class='input-small'>
                                                 <span class="add-on">$</span>
                                                 <span class="add-on">USD</span>
-                                                <input type="text" name="tourPrcEn" id="tourPrcEn" placeholder="Price" class='input-small'>
+                                                <input type="number" name="tourPrcEn" id="tourPrcEn" placeholder="Price" class='input-small'>
                                                 <span class="add-on">$</span>
                                             </div>
                                         </div>
@@ -385,7 +404,7 @@
                                     <div class="control-group">
                                         <label for="keywordVi" class="control-label">Từ Khóa</label>
                                         <div class="controls">
-                                            <input type="text" name="keywordVi" id="keywordVi" data-role="tagsinput" value="">
+                                            <input type="text" name="keywordVi" id="keywordVi" data-role="tagsinput" value="" required>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -405,16 +424,17 @@
                                         </div>
                                     </div>
                                     <div class="control-group">
-                                        <label for="province" class="control-label">Thành Phố</label>
+                                        <label for="province" class="control-label">Danh Mục</label>
                                         <div class="controls">
                                             <div class="input-xlarge">
-                                                <select name="province" id="province" class='chosen-select'>
-                                                    @if(isset($locationList))
-                                                        @foreach($locationList as $ll)
-                                                            <option id="prv" class="{{ $ll->NATIONAL_CD }}" value="{{ $ll->LOCATION_ID }}" style="display: none" >{{ $ll->PROVINCE_NM_VI }}</option>
+                                                <select name="category" id="category" class='chosen-select'>
+                                                    @if(isset($categoryList))
+                                                        @foreach($categoryList as $cl)
+                                                            <option id="cate" value="{{ $cl->POST_GRP_ID }}">{{ $cl->POST_NM_VI }}</option>
                                                         @endforeach
                                                     @endif
-                                                </select></div>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -506,7 +526,7 @@
                                     <div class="control-group">
                                         <label for="keywordEn" class="control-label"></label>
                                         <div class="controls">
-                                            <div class="span12"><input type="text" name="keywordEn" id="keywordEn" data-role="tagsinput" value=""></div>
+                                            <input type="text" name="keywordEn" id="keywordEn" data-role="tagsinput" value="" required>
                                         </div>
                                     </div>
                                     <div class="control-group">

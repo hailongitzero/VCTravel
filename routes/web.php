@@ -63,16 +63,27 @@ Route::get('admin', function (){
     return view('admin.pages.dashboard');
 });
 
-Route::get('admin/tour-list', 'Admin\AdminTourController@getTourList');
-
+Route::get('admin/tour-list', 'Admin\AdminTourController@getTourList')->middleware('auth', 'admin');
 //Insert Tour
-Route::get('admin/tour-edit', 'Admin\AdminTourController@createTour');
+Route::get('admin/tour-edit', 'Admin\AdminTourController@createTour')->middleware('auth', 'admin');
 //Update tour
 Route::get('admin/tour-edit/{id}', 'Admin\AdminTourController@getTourDetail')->middleware('auth', 'admin');
-//Tour Image Management
-Route::get('admin/tour-image/{id}', 'Admin\AdminTourController@getTourImage');
-
 //Edit tour
-Route::POST('admin/tourEditor', 'Admin\AdminTourController@tourEditor');
+Route::POST('admin/tourEditor', 'Admin\AdminTourController@tourEditor')->middleware('auth', 'admin');
 //Update tour
-Route::POST('admin/tourUpdate', 'Admin\AdminTourController@tourUpdate');
+Route::POST('admin/tourUpdate', 'Admin\AdminTourController@tourUpdate')->middleware('auth', 'admin');
+
+//News List
+Route::get('admin/news-list', 'Admin\AdminNewsController@getNewsList')->middleware('auth', 'admin');
+//News -- Add new
+Route::get('admin/news-edit', 'Admin\AdminNewsController@createNews')->middleware('auth', 'admin');
+//News -- Edit
+Route::get('admin/news-edit/{id}', 'Admin\AdminNewsController@newsDetail')->middleware('auth', 'admin');
+//News Editor
+Route::POST('admin/newsEditor', 'Admin\AdminNewsController@newsEditor')->middleware('auth', 'admin');
+//News Update
+Route::POST('admin/newsUpdate', 'Admin\AdminNewsController@newsUpdate')->middleware('auth', 'admin');
+
+Auth::routes();
+
+

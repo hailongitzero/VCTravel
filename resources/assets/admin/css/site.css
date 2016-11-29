@@ -109,3 +109,12 @@ p.error{
 .mb-5{
     margin-bottom: 5px;
 }
+
+.input-xmedium{
+    width: 45%;
+    display: inline-block;
+}
+
+.bootstrap-tagsinput{
+    width: 95%;
+}
