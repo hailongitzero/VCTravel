@@ -22,5 +22,4 @@ return [
     'myAccount' => 'My Account',
     'currency' => 'Currency',
     'language' => 'Language',
-
 ];

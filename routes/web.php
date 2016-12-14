@@ -18,6 +18,9 @@ Route::get('/home', 'HomeController@index');
 /* Index page route*/
 Route::get('', 'IndexController@index');
 
+/* Change locale code*/
+Route::get('lang/{id}', 'IndexController@setLang');
+
 /* Not found page route*/
 Route::get('404', 'IndexController@notFoundPage');
 
@@ -83,6 +86,17 @@ Route::get('admin/news-edit/{id}', 'Admin\AdminNewsController@newsDetail')->midd
 Route::POST('admin/newsEditor', 'Admin\AdminNewsController@newsEditor')->middleware('auth', 'admin');
 //News Update
 Route::POST('admin/newsUpdate', 'Admin\AdminNewsController@newsUpdate')->middleware('auth', 'admin');
+
+//Slide List
+Route::get('admin/slide-list', 'Admin\SlideController@getSlideList')->middleware('auth', 'admin');
+//Slide -- Add new
+Route::get('admin/slide-edit', 'Admin\SlideController@createSlide')->middleware('auth', 'admin');
+//Slide -- Edit
+Route::get('admin/slide-edit/{id}', 'Admin\SlideController@slideDetail')->middleware('auth', 'admin');
+//Slide Editor
+Route::POST('admin/slideEditor', 'Admin\SlideController@slideEditor')->middleware('auth', 'admin');
+//Slide Update
+Route::POST('admin/slideUpdate', 'Admin\SlideController@slideUpdate')->middleware('auth', 'admin');
 
 Auth::routes();
 

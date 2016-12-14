@@ -2353,14 +2353,14 @@ nav .inner-nav.mobile_nav.opened ul {
 /*  */
 .site-top-panel {
     background: #45505c;
-    height: 62px;
-    line-height: 60px;
+    height: 42px;
+    line-height: 40px;
     border-top: 2px solid #8bcf17;
 }
 
 .site-top-panel .top-left-wrap {
     font-size: 13px;
-    height: 60px;
+    height: 40px;
 }
 
 .site-top-panel .top-left-wrap > * {
@@ -2558,7 +2558,7 @@ nav .inner-nav.mobile_nav.opened ul {
 .search-tours-form {
     position: absolute;
     z-index: 20;
-    bottom: 60px;
+    top: 10px;
     left: 50%;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
@@ -2676,7 +2676,7 @@ nav .inner-nav.mobile_nav.opened ul {
 }
 
 .search-tours-wrap .search-tours-content .tours-container {
-    padding: 15px;
+    padding: 15px 15px 0 15px;
 }
 
 .search-tours-wrap .search-tours-content .tours-container .tours-box .tours-search {

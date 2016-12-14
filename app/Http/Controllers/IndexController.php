@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models;
 use Illuminate\Support\Facades\App;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class IndexController extends Controller
 {
@@ -91,5 +92,10 @@ class IndexController extends Controller
         );
 
         return view('404', $indexData);
+    }
+
+    public function setLang($lang){
+        session(['language' => $lang]);
+        return redirect()->back();
     }
 }

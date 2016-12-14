@@ -25,9 +25,9 @@
 @section('page-content')
     {{--@include('components.slide.slider', $sliderData)--}}
     @include('components.slide.sliderSearch', $sliderData)
-    @include('components.latestNews', $latestNews)
-    @include('components.tourCategory', $cateData)
     @include('components.recommended', $tourRcm)
+    @include('components.tourCategory', $cateData)
+    @include('components.latestNews', $latestNews)
     @include('components.callOut')
 @endsection
 <!--end content site section-->

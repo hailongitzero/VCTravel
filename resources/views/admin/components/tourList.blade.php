@@ -9,12 +9,12 @@
 <div id="content">
     <div class="page-header">
         <div class="pull-left">
-            <h4><i class="icon-table"></i> Tables</h4>
+            <h4><i class="icon-table"></i> Tour</h4>
         </div>
         <div class="pull-right">
             <ul class="bread">
-                <li><a href="dashboard.html">Home</a><span class="divider">/</span></li>
-                <li class='active'>Tables</li>
+                <li><a href="{{ url('admin') }}">Home</a><span class="divider">/</span></li>
+                <li class='active'>Tour</li>
             </ul>
         </div>
     </div>
@@ -25,7 +25,7 @@
                 <div class="box">
                     <div class="box-head">
                         <i class="icon-table"></i>
-                        <span>Dynamic tables</span>
+                        <span>Danh Sách Tour</span>
                     </div>
                     <div class="box-body box-body-nopadding">
                         {{ csrf_field() }}

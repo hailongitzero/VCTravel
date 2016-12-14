@@ -9,13 +9,13 @@
 <div id="content">
     <div class="page-header">
         <div class="pull-left">
-            <h4><i class="icon-file-alt"></i> Forms - Basic forms</h4>
+            <h4><i class="icon-file-alt"></i> Tour Edit</h4>
         </div>
         <div class="pull-right">
             <ul class="bread">
-                <li><a href="dashboard.html">Home</a><span class="divider">/</span></li>
-                <li><a href="basic-forms.html">Forms</a><span class="divider">/</span></li>
-                <li class='active'>Basic forms</li>
+                <li><a href="{{ url('admin') }}">Home</a><span class="divider">/</span></li>
+                <li><a href="{{ url('admin/tour-list') }}">Tour</a><span class="divider">/</span></li>
+                <li class='active'>Tour Edit</li>
             </ul>
         </div>
     </div>

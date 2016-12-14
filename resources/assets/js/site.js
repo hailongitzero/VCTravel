@@ -3,13 +3,8 @@
  */
 "use strict"; // start of use strict
 $(document).ready(function() {
-    popup_tour_init();
 
-    // $.ajaxSetup({
-    //     headers: {
-    //         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-    //     }
-    // });
+    popup_tour_init();
 
     $('#tourRate').on('rating.change', function(event, value) {
         $('#rateValue').val(value);

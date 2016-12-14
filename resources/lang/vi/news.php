@@ -2,10 +2,9 @@
 /**
  * Created by PhpStorm.
  * User: HaiLong
- * Date: 8/17/2016
- * Time: 11:45 AM
+ * Date: 12/2/2016
+ * Time: 10:24 AM
  */
-
 return [
 
     /*
@@ -19,7 +18,8 @@ return [
     |
     */
 
-    'myAccount' => 'Tài Khoản',
-    'currency' => 'Tỷ Giá',
-    'language' => 'Ngôn Ngữ',
+    'latestNews' => 'Tin Tức Mới',
+    'newsCateTitle' => 'Tin Tức Du Lịch',
+    'newsCateContent' => 'Cập nhật thông tin giải trí - du lịch - xã hội',
+
 ];

@@ -2,10 +2,9 @@
 /**
  * Created by PhpStorm.
  * User: HaiLong
- * Date: 8/17/2016
- * Time: 11:45 AM
+ * Date: 12/2/2016
+ * Time: 10:24 AM
  */
-
 return [
 
     /*
@@ -19,7 +18,10 @@ return [
     |
     */
 
-    'myAccount' => 'Tài Khoản',
-    'currency' => 'Tỷ Giá',
-    'language' => 'Ngôn Ngữ',
+    'tourGroup' => 'Tour Group',
+    'tourGroupTitle' => 'Top Feature Tour Category',
+    'tourGroupContent' => 'The most feature tour category of Vung Chua Travle',
+    'topRate' => 'Top Rate',
+    'topRateTitle' => 'Top best rate tour',
+    'topRateContent' => 'The best rating tour in Vung Chua Travel',
 ];

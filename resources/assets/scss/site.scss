@@ -209,6 +209,16 @@ input{
   font-weight: 500;
 }
 
+.cat-close{
+  text-align: center;
+  .cat-close-button{
+    position: relative;
+    img{
+      width: 50px;
+    }
+  }
+}
+
 .pattern1{
   &:before{
     content: '';
@@ -292,7 +302,7 @@ input{
         font-weight: 500;
       }
       p{
-        max-height: 90px;
+        max-height: 76px;
         overflow: hidden;
       }
     }

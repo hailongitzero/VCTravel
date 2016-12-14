@@ -11,10 +11,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h6 class="title-section-top font-4">Top rated</h6>
-                <h2 class="title-section"><span>Recommended</span> Tours</h2>
+                <h6 class="title-section-top font-4">{{ trans('category.topRate') }}</h6>
+                <h2 class="title-section">{{ trans('category.topRateTitle') }}</h2>
                 <div class="cws_divider mb-25 mt-5"></div>
-                <p>Maecenas commodo odio ut vulputate cursus. Integer in egestas lectus. Nam volutpat feugiat mi vitae mollis. Aenean tristique dolor bibendum mi scelerisque ultrices non at lorem.</p>
+                <p>{{ trans('category.topRateContent') }}</p>
             </div>
             <div class="col-md-4"><i class="flaticon-suntour-hotel title-icon"></i></div>
         </div>
@@ -33,7 +33,7 @@
                                     <h6 class="blog-title">{{$tourRcm->tourTit}}</h6></a>
                                 <div class="stars-perc"><span style="width:{{$tourRcm->tourRate}}%"></span></div>
                                 <div class="recom-price"><span class="font-2">{{$tourRcm->tourPrc.' '.$tourRcm->tourCurrUnt}}</span> {{$tourRcm->tourLgt}}</div>
-                                <p class="recom-content">{{$tourRcm->tourShtCnt}}</p><a href="{{url('tour-detail/'.$tourRcm->tourTxtLnk)}}" class="cws-button small alt">Book now</a>
+                                <p class="recom-content">{{$tourRcm->tourShtCnt}}</p><a href="{{url('tour-detail/'.$tourRcm->tourTxtLnk)}}" class="cws-button small alt">{{ trans('common.readMore') }}</a>
                                 <div class="action font-2">{{$tourRcm->tourPrmPrc}}%</div>
                             </div>
                             <!-- Recomended Image-->

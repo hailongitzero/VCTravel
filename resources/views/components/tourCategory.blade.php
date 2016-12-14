@@ -11,10 +11,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h6 class="title-section-top font-4">Special offers</h6>
-                <h2 class="title-section"><span>Tours</span> Category</h2>
+                <h6 class="title-section-top font-4">{{ trans('category.tourGroup') }}</h6>
+                <h2 class="title-section">{{ trans('category.tourGroupTitle') }}</h2>
                 <div class="cws_divider mb-25 mt-5"></div>
-                <p>Nullam ac dolor id nulla finibus pharetra. Sed sed placerat mauris. Pellentesque lacinia imperdiet interdum. Ut nec nulla in purus consequat lobortis. Mauris lobortis a nibh sed convallis.</p>
+                <p>{{ trans('category.tourGroupContent') }}</p>
             </div>
             <div class="col-md-4"><img src="/resources/assets/pic/promo-1.png" data-at2x="/resources/assets/pic/promo-1@2x.png" alt class="mt-md-0 mt-minus-70"></div>
         </div>
@@ -33,7 +33,7 @@
                                         <h4 class="title">
                                             {{$cate->pstNm}}
                                         </h4>
-                                        <a href="{{url('tours/'.$cate->pstLnk)}}" class="button">Details</a>
+                                        <a href="{{url('tours/'.$cate->pstLnk)}}" class="button">{{ trans('common.detail') }}</a>
                                     </div>
                                 </div>
                             </div>

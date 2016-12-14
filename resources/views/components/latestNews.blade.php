@@ -11,10 +11,10 @@
     <div class="container">
         <div class="row mb-50 align-center">
             <div class="col-md-8 col-md-offset-2">
-                <h6 class="title-section-top font-2">Latest News</h6>
-                <h2 class="title-section alt-2"><span>Vung Chua Travel</span> News Magazine</h2>
+                <h6 class="title-section-top font-2">{{ trans('news.latestNews') }}</h6>
+                <h2 class="title-section alt-2"><span>{{ trans('news.newsCateTitle') }}</span></h2>
                 <div class="cws_divider mb-25 mt-5"></div>
-                <p class="color-white">Vestibulum feugiat vitae tortor ut venenatis. Sed cursus, purus eu euismod bibendum, diam nisl suscipit odio, vitae ultrices mauris dolor quis mauris. Curabitur ac metus id leo maxim.</p>
+                <p class="color-white">{{ trans('news.newsCateContent') }}</p>
             </div>
             {{--<div class="col-md-4"><i class="flaticon-suntour-calendar title-icon alt"></i></div>--}}
         </div>
@@ -35,7 +35,7 @@
                                     <div class="blog-item-data">
                                         {{$news->crtDt}}</div>
                                     <!-- Text Intro-->
-                                    <p>{{$news->nwsShtCnt}}</p><a href="blog-single.html" class="blog-button">Read more</a>
+                                    <p>{{$news->nwsShtCnt}}</p><a href="blog-single.html" class="blog-button">{{ trans('common.readMore') }}</a>
                                 </div>
                             </div>
                             <!-- ! Blog item-->

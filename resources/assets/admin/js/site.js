@@ -22,6 +22,10 @@ $(document).ready(function() {
         CKEDITOR.replace( 'newsCntEn' );
         CKEDITOR.add;
     }
+    if(document.getElementById("slideCntEn") != null){
+        CKEDITOR.replace( 'slideCntEn' );
+        CKEDITOR.add;
+    }
 
     //switch checkbox style for data table
     $("[class='switch-checkbox']").bootstrapSwitch();

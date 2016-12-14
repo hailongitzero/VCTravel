@@ -825,7 +825,7 @@ function init_rev_slider () {
 				}
 			},
 			gridwidth: 1170,
-			gridheight: 700,
+			gridheight: 520,
 			dottedOverlay:"custom",
 			lazyLoad:"on",
 			responsiveLevels:[4096,1025,778,480],
@@ -1504,6 +1504,7 @@ function footer_height(){
 
 // search tours form
 function search_form_height() {
+	// console.log($('.search-tours-wrap').find('.active'));
 	var contH = $('.search-tours-wrap .tours-container.active').outerHeight();
 	$('.search-tours-content').css({'height': +contH+'px'});
 }
@@ -1532,6 +1533,25 @@ function search_form_click() {
 		})
 
 	});
+
+    $('.cat-close-button').each(function(){
+        $(this).on('click', function() {
+            $(this).siblings().removeClass('active');
+			$('.tours-tab-btn').siblings().removeClass('active');
+
+            var idBtn = ($(this).attr("data-tours-cat"));
+            var containerList = $(this).parents(".search-tours-wrap").find(".tours-container");
+            var f = $(".search-tours-wrap [data-tours-cat="+idBtn+"]");
+
+            $(".tours-container").removeClass('active');
+            $(containerList).fadeOut( 0 );
+            $(f).fadeIn( 600 );
+            $(this).siblings(".tours-tab-btn").removeClass('active');
+
+            $('.search-tours-content').css({'height': '0px'});
+        })
+
+    });
 
 	$(document).on('click', '.tours-calendar span', function() {
 		$(this).siblings('.calendar-widget').toggleClass('active').fadeToggle('fast');

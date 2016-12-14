@@ -21,28 +21,13 @@
                 </div>
                 <div class="col-md-6 col-sm-5 text-right">
                     <div class="top-right-wrap">
-                        {{--<div class="top-login"><a href="index.html#">{{trans('header.myAccount')}}</a></div>--}}
-                        {{--<div class="curr-wrap dropdown">--}}
-                            {{--<div>--}}
-                                {{--<ul>--}}
-                                    {{--<li><a href="index.html#" class="lang-sel icl-en">{{trans('header.currency')}}<i class="fa fa-angle-down"></i></a>--}}
-                                        {{--<ul>--}}
-                                            {{--<li><a href="index.html#">USD</a></li>--}}
-                                            {{--<li><a href="index.html#">EUR</a></li>--}}
-                                            {{--<li> <a href="index.html#">GBP</a></li>--}}
-                                            {{--<li> <a href="index.html#">AUD</a></li>--}}
-                                        {{--</ul>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
                         <div class="lang-wrap dropdown">
                             <div>
                                 <ul>
-                                    <li><a href="{{url('#')}}" class="lang-sel icl-en">{{trans('header.language')}} <i class="fa fa-angle-down"></i></a>
-                                        <ul>
-                                            <li><a href="{{url('#')}}">English</a></li>
-                                            <li> <a href="{{url('#')}}">Vietnam</a></li>
+                                    <li><a href="#" class="lang-sel icl-en">{{trans('header.language')}} <i class="fa fa-angle-down"></i></a>
+                                        <ul class="lang">
+                                            <li><a href="{{url('lang/en')}}" class="en">English</a></li>
+                                            <li> <a href="{{url('lang/vi')}}" class="vi">Vietnam</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -104,7 +89,7 @@
                         @endforeach
                     @endif
                     {{--<!-- Search-->--}}
-                    <li class="search"><a href="{{url('#')}}" class="mn-has-sub">Search</a>
+                    <li class="search"><a href="{{url('#')}}" class="mn-has-sub">{{trans('common.search')}}</a>
                         <ul class="search-sub">
                             <li>
                                 <div class="container">
@@ -115,7 +100,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="close-button"><span>Search</span></div>
+                                    <div class="close-button"><span>{{ trans('common.search') }}</span></div>
                                 </div>
                             </li>
                         </ul>

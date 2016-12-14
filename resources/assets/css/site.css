@@ -119,6 +119,13 @@ input {
 .cws-button {
   font-weight: 500; }
 
+.cat-close {
+  text-align: center; }
+  .cat-close .cat-close-button {
+    position: relative; }
+    .cat-close .cat-close-button img {
+      width: 50px; }
+
 .pattern1:before {
   content: '';
   display: block;
@@ -174,7 +181,7 @@ input {
     .owl-item .blog-item .blog-item-body .blog-button {
       font-weight: 500; }
     .owl-item .blog-item .blog-item-body p {
-      max-height: 90px;
+      max-height: 76px;
       overflow: hidden; }
   .owl-item .blog-item .blog-media {
     width: 50%;

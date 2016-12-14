@@ -480,4 +480,147 @@ $(document).ready(function() {
 
         return false;
     });
+
+    //slide update in list page
+    //tour update in list page
+    $("#tbSlideList").unbind('click');
+    $("#tbSlideList").on("click", "#slideSave", function () {
+        var trObject = $(this).parent().parent('tr');
+        var data = new FormData();
+
+        data.append('slideId', $(this).attr('item-data'));
+        data.append('slideSeq', $(trObject.find('option:selected')[0]).val());
+        data.append('slideLink', $(trObject.find('input')[1]).val());
+        data.append('_token', $('meta[name="csrf-token"]').attr('content'));
+        data.append('header', $('meta[name="csrf-token"]').attr('content'));
+
+        $.ajax({
+            type: 'POST',
+            url: '/admin/slideUpdate',
+            data: data,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            dataType: 'json',
+            success: function (response) {
+                alert(response.Content);
+                location.reload();
+            },
+            error: function (response) {
+                alert("Lỗi hệ thống, vui lòng thử lại.");
+            }
+        });
+
+        return false;
+    });
+
+    if ($("#slideEditorForm").length) {
+        /**/
+        /* add admin form */
+        /**/
+        /* validate the add admin form fields */
+
+        $("#slideEditorForm").each(function(){
+            $(this).validate(  /*feedback-form*/{
+                onkeyup: false,
+                onfocusout: false,
+                errorElement: 'p',
+                errorLabelContainer: $(this).children(".alert.alert-danger").children(".message"),
+                rules:
+                {
+                    titleVi:{ required: true },
+                    titleEn:{	required: true},
+                    textLink:{ required: true},
+                    shrtCntVi:{ required: true},
+                    shrtCntEn:{ required: true},
+                },
+                messages:
+                {
+                    titleVi:{ required: 'Nhập tiêu đề'},
+                    titleEn:{	required: 'Nhập tiêu đề'},
+                    textLink:{ required: 'Nhập text link'},
+                    shrtCntVi:{ required: 'Nhập tóm tắt nội dung'},
+                    shrtCntEn:{ required: 'Nhập tóm tắt nội dung'},
+                },
+                invalidHandler: function()
+                {
+                    $(this).children(".alert.alert-danger").slideDown('fast');
+                    $("#feedback-form-success").slideUp('fast');
+                },
+                submitHandler: function(form)
+                {
+                    $(form).children(".alert.alert-danger").slideUp('fast');
+                    slide_submit_handler($(form), $(form).children(".tour_server_response") );
+                }
+            });
+        })
+
+        /* Ajax, Server response */
+        var slide_submit_handler =  function (form, wrapper){
+            var $wrapper = $(wrapper); //this class should be set in HTML code
+            $wrapper.css("display","block");
+
+            var formData = new FormData();
+
+            var data = {
+                slideId: $('#slideId').val(),
+                titleVi: $('#titleVi').val(),
+                titleEn: $('#titleEn').val(),
+                textLink: $('#textLink').val(),
+                slideSeq: $("#slideSeq").chosen().val(),
+                slideCntVi: CKEDITOR.instances.slideCntVi.getData(),
+                slideCntEn: CKEDITOR.instances.slideCntEn.getData(),
+                formAction: $('#btnSubmit').text(),
+                rpvImg: ($("#rpvImg"))[0].files[0],
+                rpvTxtLink: $('#txtRpvImgLnk').val(),
+                sldImgAlt: $('#sldImgAlt').val(),
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                header: $('meta[name="csrf-token"]').attr('content'),
+            };
+
+            for( dt in data){
+                formData.append(dt, data[dt]);
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/admin/slideEditor',
+                data: formData,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,  // tell jQuery not to set contentType
+                dataType: 'json',
+                success: function (response) {
+                    alert(response.Content);
+                    if ($('#btnSubmit').text() == "Save"){
+                        window.location = '/admin/slide-edit/'+response.slideId;
+                    }else{
+                        location.reload();
+                    }
+                },
+                error: function (xhr) {
+                    var response = $.parseJSON(xhr.responseText);
+                    var rslStr = "Hãy điền đầy đủ thông tin \n";
+                    console.log(response);
+                    console.log(Object.keys(response).length)
+                    if(xhr.status == 422){
+                        $.each(response, function(key, value) {
+                            rslStr += value+"\n";
+                        });
+                        alert(rslStr);
+                    }else{
+                        if ($('#btnSubmit').text() == "Save"){
+                            alert('Tạo mới slide lỗi. Vui lòng làm lại');
+                        }else{
+                            alert('Cập nhật slide lỗi. Vui lòng làm lại');
+                        }
+                    }
+                }
+            });
+
+            return false;
+        }
+
+        $('form#newsEditorForm').on("click", function() {
+            $(this).find('p.error').remove();
+        })
+    }
 });

@@ -10,7 +10,25 @@
         <ul>
             @if(isset($sliderContent))
                 @foreach($sliderContent as $sldData)
-                    {!! $sldData->sldHtmlCd !!}
+                    @if($sldData->sldSeq % 2 == 0)
+                        <li data-masterspeed="700" data-transition="fade"><img src="rs-plugin/assets/loader.gif" data-lazyload="{{ $sldData->sldImgUrl }}" data-bgposition="center" alt="{{ $sldData->sldImgAlt }}" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10">
+                            <div data-x="['center','center','center','center']" data-y="center" data-transform_in="y:-150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
+                                {!! $sldData->sldCnt !!}
+                            </div>
+                        </li>
+                    @elseif( $sldData->sldSeq % 3 == 0)
+                        <li data-masterspeed="700" data-transition="fade"><img src="rs-plugin/assets/loader.gif" data-lazyload="{{ $sldData->sldImgUrl }}" data-bgposition="center" alt="{{ $sldData->sldImgAlt }}" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10">
+                            <div data-x="['center','center','center','center']" data-y="center" data-transform_in="x:150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:-150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
+                                {!! $sldData->sldCnt !!}
+                            </div>
+                        </li>
+                    @else
+                        <li data-masterspeed="700" data-slotamount="7" data-transition="fade"><img src="rs-plugin/assets/loader.gif" data-lazyload="{{ $sldData->sldImgUrl }}" data-bgposition="center" alt="{{ $sldData->sldImgAlt }}" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10">
+                            <div data-x="['center','center','center','center']" data-y="center" data-transform_in="x:-150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
+                                {!! $sldData->sldCnt !!}
+                            </div>
+                        </li>
+                    @endif
                 @endforeach
             @endif
         </ul>
@@ -21,7 +39,7 @@
             <div class="search-tours-wrap">
                 <div class="search-tours-tabs">
                     <div class="search-tabs-wrap">
-                        <div data-tours-cat="tab-cat-1" class="tours-tab-btn active"><span>Tours</span><i class="tours-tab-icon flaticon-suntour-world"></i></div>
+                        <div data-tours-cat="tab-cat-1" class="tours-tab-btn"><span>Tours</span><i class="tours-tab-icon flaticon-suntour-world"></i></div>
                         <div data-tours-cat="tab-cat-2" class="tours-tab-btn"> <span>Holidays</span><i class="tours-tab-icon flaticon-suntour-fireworks"></i></div>
                         <div data-tours-cat="tab-cat-3" class="tours-tab-btn"> <span>Hotels</span><i class="tours-tab-icon flaticon-suntour-hotel"></i></div>
                         <div data-tours-cat="tab-cat-4" class="tours-tab-btn"> <span>Cruise</span><i class="tours-tab-icon flaticon-suntour-ship"></i></div>
@@ -30,7 +48,7 @@
                     </div>
                 </div>
                 <div class="search-tours-content">
-                    <div data-tours-cat="tab-cat-1" class="tours-container active">
+                    <div data-tours-cat="tab-cat-1" style="display: none;" class="tours-container">
                         <div class="tours-box">
                             <div class="tours-search">
                                 <form method="post" class="form search divider-skew">
@@ -64,6 +82,11 @@
                                 </div>
                                 <div class="button-search">Search</div>
                             </div>
+                        </div>
+                        <div class="cat-close">
+                            <a href="#" class="cat-close-button">
+                                <img src="/resources/assets/img/btn_up.png" alt="">
+                            </a>
                         </div>
                     </div>
                     <div data-tours-cat="tab-cat-2" style="display: none;" class="tours-container">
@@ -100,6 +123,11 @@
                                 </div>
                                 <div class="button-search">Search</div>
                             </div>
+                        </div>
+                        <div class="cat-close">
+                            <a href="#" class="cat-close-button">
+                                <img src="/resources/assets/img/btn_up.png" alt="">
+                            </a>
                         </div>
                     </div>
                     <div data-tours-cat="tab-cat-3" style="display: none;" class="tours-container">
@@ -148,6 +176,11 @@
                                 <div class="button-search">Search</div>
                             </div>
                         </div>
+                        <div class="cat-close">
+                            <a href="#" class="cat-close-button">
+                                <img src="/resources/assets/img/btn_up.png" alt="">
+                            </a>
+                        </div>
                     </div>
                     <div data-tours-cat="tab-cat-4" style="display: none;" class="tours-container">
                         <div class="cruise-box">
@@ -162,6 +195,11 @@
                                 </div>
                                 <div class="button-search">Search</div>
                             </div>
+                        </div>
+                        <div class="cat-close">
+                            <a href="#" class="cat-close-button">
+                                <img src="/resources/assets/img/btn_up.png" alt="">
+                            </a>
                         </div>
                     </div>
                     <div data-tours-cat="tab-cat-5" style="display: none;" class="tours-container">
@@ -232,6 +270,11 @@
                                 </div>
                                 <div class="buttons-wrap"> <a href="index-search.html#" class="tour-button">Roundtrip </a><a href="index-search.html#" class="tour-button">One Way </a><a href="index-search.html#" class="tour-button">Multiply Destinations </a></div>
                             </div>
+                        </div>
+                        <div class="cat-close">
+                            <a href="#" class="cat-close-button">
+                                <img src="/resources/assets/img/btn_up.png" alt="">
+                            </a>
                         </div>
                     </div>
                     <div data-tours-cat="tab-cat-6" style="display: none;" class="tours-container">
@@ -329,6 +372,11 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="cat-close">
+                            <a href="#" class="cat-close-button">
+                                <img src="/resources/assets/img/btn_up.png" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>
