@@ -12,26 +12,31 @@
                 @foreach($sliderContent as $sldData)
                     @if($sldData->sldSeq % 2 == 0)
                         <li data-masterspeed="700" data-transition="fade"><img src="rs-plugin/assets/loader.gif" data-lazyload="{{ $sldData->sldImgUrl }}" data-bgposition="center" alt="{{ $sldData->sldImgAlt }}" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10">
-                            <div data-x="['center','center','center','center']" data-y="center" data-transform_in="y:-150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
-                                {!! $sldData->sldCnt !!}
+                            <div data-x="['center','center','center','center']" data-y="bottom" data-transform_in="y:-150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
+                                <div class="sl-title-top">{!! $sldData->sldCnt !!}</div>
                             </div>
                         </li>
                     @elseif( $sldData->sldSeq % 3 == 0)
                         <li data-masterspeed="700" data-transition="fade"><img src="rs-plugin/assets/loader.gif" data-lazyload="{{ $sldData->sldImgUrl }}" data-bgposition="center" alt="{{ $sldData->sldImgAlt }}" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10">
-                            <div data-x="['center','center','center','center']" data-y="center" data-transform_in="x:150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:-150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
-                                {!! $sldData->sldCnt !!}
+                            <div data-x="['center','center','center','center']" data-y="bottom" data-transform_in="x:150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:-150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
+                                <div class="sl-title-top">{!! $sldData->sldCnt !!}</div>
                             </div>
                         </li>
                     @else
                         <li data-masterspeed="700" data-slotamount="7" data-transition="fade"><img src="rs-plugin/assets/loader.gif" data-lazyload="{{ $sldData->sldImgUrl }}" data-bgposition="center" alt="{{ $sldData->sldImgAlt }}" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10">
-                            <div data-x="['center','center','center','center']" data-y="center" data-transform_in="x:-150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
-                                {!! $sldData->sldCnt !!}
+                            <div data-x="['center','center','center','center']" data-y="bottom" data-transform_in="x:-150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
+                                <div class="sl-title-top">{!! $sldData->sldCnt !!}</div>
                             </div>
                         </li>
                     @endif
                 @endforeach
             @endif
         </ul>
+    </div>
+    <div class="lotus-wrapper">
+        <div class="lotus">
+            <img src="/resources/assets/img/lotus.png" alt="vung chua travel">
+        </div>
     </div>
     <!-- search tours form-->
     <div class="search-tours-form">

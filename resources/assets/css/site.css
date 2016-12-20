@@ -423,4 +423,30 @@ footer {
 .review-content textarea {
   border-color: #d2cece; }
 
+.lotus-wrapper {
+  max-width: 1300px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: -70px;
+  z-index: 0; }
+  .lotus-wrapper .lotus {
+    bottom: 0px;
+    position: absolute;
+    right: -130px;
+    width: 350px;
+    z-index: 0;
+    overflow: visible; }
+    @media (max-width: 768px) {
+      .lotus-wrapper .lotus {
+        bottom: 50px;
+        width: 200px;
+        right: -50px; } }
+    @media (max-width: 400px) {
+      .lotus-wrapper .lotus {
+        bottom: 100px;
+        width: 100px;
+        right: -30px; } }
+
 /*# sourceMappingURL=site.css.map */

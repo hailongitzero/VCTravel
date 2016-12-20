@@ -158,7 +158,6 @@ class AdminTourController extends Controller
                         return response()->json(['info' => 'Fail', 'Content' =>  'Update representative image fail.', 'tourId' => $tourId ],200);
                 }
             }
-
 //            insert image list
             if (strlen($request->input('imgLinkList')) > 5){
                 $imgLinkArr = explode(",", $request->input('imgLinkList'));

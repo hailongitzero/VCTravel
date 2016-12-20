@@ -127,6 +127,8 @@ class SlideController extends Controller
                 }else{
                     return response()->json(['info' => 'Success', 'Content' =>  'Edit slide success, but background image change fail.', 'slideId' => $slideId ],200);
                 }
+            }else{
+                return response()->json(['info' => 'Success', 'Content' =>  'Edit slide success.', 'slideId' => $slideId ],200);
             }
         }else{
             return response()->json(['info' => 'Fail', 'Content' =>  'Edit slide fail.', 'slideId' => $slideId ],200);

@@ -5280,11 +5280,13 @@ nav .inner-nav.mobile_nav.opened ul {
 
 .tp-caption .sl-title-top {
     font-weight: 400;
-    font-size: 3.1em;
+    font-size: 2.1em;
+    width: 750px;
+    padding-bottom: 20px;
 }
 
 .tp-caption .sl-title {
-    font-size: 10em;
+    font-size: 5em;
     line-height: 1;
     letter-spacing: 4px;
     font-weight: 700;
