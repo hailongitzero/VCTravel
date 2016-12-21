@@ -26,59 +26,60 @@
                 </div>
                 @endforeach
             @endif
-            <div class="blog-item alt">
-                <h2 class="title-section alt-3 font-bold mt-0 mb-10">Comments <span>({{$mdNewsComment->total()}})</span></h2>
-                <div class="cws_divider"></div>
-                @if(isset($mdNewsComment))
-                    @foreach($mdNewsComment as $comment)
-                    <!-- comment list section-->
-                    <div class="comments mt-40">
-                        <div class="comment-body">
-                            <div class="avatar"><img src="/resources/assets/img/dummy.png" data-at2x="/resources/assets/img/dummy@2x.png" alt></div>
-                            <div class="comment-info">
-                                <div class="comment-meta">
-                                    <div class="title">
-                                        <h5>{{ $comment->cmFName.' '.$comment->cmLName }}</h5>
-                                    </div>
-                                    <div class="comment-date"><span>{{ $comment->cmCrtDt }}</span></div>
-                                </div>
-                                <div class="comment-content">
-                                    <p>{{ $comment->cmCnt }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ! comment list section-->
-                    @endforeach
-                @endif
-            </div>
+            {{--<div class="blog-item alt">--}}
+                {{--<h2 class="title-section alt-3 font-bold mt-0 mb-10">Comments <span>({{$mdNewsComment->total()}})</span></h2>--}}
+                {{--<div class="cws_divider"></div>--}}
+                {{--@if(isset($mdNewsComment))--}}
+                    {{--@foreach($mdNewsComment as $comment)--}}
+                    {{--<!-- comment list section-->--}}
+                    {{--<div class="comments mt-40">--}}
+                        {{--<div class="comment-body">--}}
+                            {{--<div class="avatar"><img src="/resources/assets/img/dummy.png" data-at2x="/resources/assets/img/dummy@2x.png" alt></div>--}}
+                            {{--<div class="comment-info">--}}
+                                {{--<div class="comment-meta">--}}
+                                    {{--<div class="title">--}}
+                                        {{--<h5>{{ $comment->cmFName.' '.$comment->cmLName }}</h5>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="comment-date"><span>{{ $comment->cmCrtDt }}</span></div>--}}
+                                {{--</div>--}}
+                                {{--<div class="comment-content">--}}
+                                    {{--<p>{{ $comment->cmCnt }}</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<!-- ! comment list section-->--}}
+                    {{--@endforeach--}}
+                {{--@endif--}}
+            {{--</div>--}}
             <!-- Leave a comment-->
-            <h2 class="title-section mt-50 mb-20"><span>Post a comment</span></h2>
-            <div class="add-comment pattern bg-gray-3 relative">
-                <div class="widget-contact-form pb-0">
-                    <!-- contact-form-->
-                    <div class="email_server_responce"></div>
-                    <form action="php/contacts-process.htm" method="post" class="form contact-form alt clearfix">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="input-container">
-                                    <input type="text" name="name" value="" size="40" placeholder="Name" aria-invalid="false" aria-required="true" class="form-row form-row-first">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-container">
-                                    <input type="text" name="email" value="" size="40" placeholder="Email" aria-required="true" class="form-row form-row-last">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-container">
-                            <textarea name="message" cols="40" rows="4" placeholder="Comment" aria-invalid="false" aria-required="true"></textarea>
-                        </div>
-                        <input type="submit" value="Submit now" class="cws-button alt">
-                    </form>
-                    <!-- /contact-form-->
-                </div>
-            </div>
+            {{--<h2 class="title-section mt-50 mb-20"><span>Post a comment</span></h2>--}}
+            <div class="fb-comments" data-href="" data-width="100%" data-numposts="5"></div>
+            {{--<div class="add-comment pattern bg-gray-3 relative">--}}
+                {{--<div class="widget-contact-form pb-0">--}}
+                    {{--<!-- contact-form-->--}}
+                    {{--<div class="email_server_responce"></div>--}}
+                    {{--<form action="php/contacts-process.htm" method="post" class="form contact-form alt clearfix">--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-md-6">--}}
+                                {{--<div class="input-container">--}}
+                                    {{--<input type="text" name="name" value="" size="40" placeholder="Name" aria-invalid="false" aria-required="true" class="form-row form-row-first">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6">--}}
+                                {{--<div class="input-container">--}}
+                                    {{--<input type="text" name="email" value="" size="40" placeholder="Email" aria-required="true" class="form-row form-row-last">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="input-container">--}}
+                            {{--<textarea name="message" cols="40" rows="4" placeholder="Comment" aria-invalid="false" aria-required="true"></textarea>--}}
+                        {{--</div>--}}
+                        {{--<input type="submit" value="Submit now" class="cws-button alt">--}}
+                    {{--</form>--}}
+                    {{--<!-- /contact-form-->--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </div>
         <div class="col-md-4 sidebar">
             <aside class="sb-right pb-50-imp">

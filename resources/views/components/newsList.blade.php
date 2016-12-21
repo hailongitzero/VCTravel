@@ -47,7 +47,7 @@
                     <!-- Blog Post-->
                         <div class="col-lg-4 mb-30">
                             <!-- Blog item-->
-                            <div class="blog-item clearfix border">
+                            <div class="blog-item news-cate-item clearfix border">
                                 <!-- Blog Image-->
                                 <div class="blog-media"><a href="{{url('news-detail/'.$news->newsTxtLnk)}}">
                                         <div class="pic"><img src="{{$news->imgTp =='R' ? $news->imgUrl : url('/').$news->imgUrl}}" data-at2x="{{$news->imgTp =='R' ? substr($news->imgUrl, 0, -4).'@2x'.substr($news->imgUrl, -4, 4) : substr(url('/').$news->imgUrl, 0, -4).'@2x'.substr(url('/').$news->imgUrl, -4, 4)}}" alt="{{$news->imgAlt}}">
@@ -59,7 +59,7 @@
                                         <h6 class="blog-title">{{$news->newsTit}}</h6></a>
                                     <div class="blog-item-data">{{$news->crtDt}}</div>
                                     <!-- Text Intro-->
-                                    <p>{{$news->newsShrCnt}}</p>
+                                    {{--<p>{{$news->newsShrCnt}}</p>--}}
                                 </div>
                             </div>
                             <!-- ! Blog item-->
@@ -84,7 +84,7 @@
                 <!-- Blog Post-->
                 <div class="col-lg-4 mb-30">
                     <!-- Blog item-->
-                    <div class="blog-item clearfix border">
+                    <div class="blog-item news-cate-item clearfix border">
                         <!-- Blog Image-->
                         <div class="blog-media"><a href="{{url('news-detail/'.$newsGrp->newsTxtLnk)}}">
                                 <div class="pic"><img src="{{$newsGrp->imgTp =='R' ? $newsGrp->imgUrl : url('/').$newsGrp->imgUrl}}" data-at2x="{{$newsGrp->imgTp =='R' ? substr($newsGrp->imgUrl, 0, -4).'@2x'.substr($newsGrp->imgUrl, -4, 4) : substr(url('/').$newsGrp->imgUrl, 0, -4).'@2x'.substr(url('/').$newsGrp->imgUrl, -4, 4)}}" alt="{{$newsGrp->imgAlt}}"></div></a></div>
@@ -94,7 +94,7 @@
                                 <h6 class="blog-title">{{$newsGrp->newsTit}}</h6></a>
                             <div class="blog-item-data">{{$newsGrp->crtDt}}</div>
                             <!-- Text Intro-->
-                            <p>{{$newsGrp->newsShrCnt}}</p>
+                            {{--<p>{{$newsGrp->newsShrCnt}}</p>--}}
                         </div>
                     </div>
                     <!-- ! Blog item-->

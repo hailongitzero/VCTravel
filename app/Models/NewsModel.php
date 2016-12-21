@@ -99,7 +99,6 @@ class NewsModel
     public function getNewsListModel($localeCode){
         $travelNews = DB::table('tb_news')
             ->join('tb_img_mgmt', 'tb_news.NEWS_RPV_IMG_ID', '=', 'tb_img_mgmt.IMG_ID')
-            ->join('tb_location', 'tb_news.LOCATION_ID', '=', 'tb_location.LOCATION_ID')
             ->leftJoin(DB::raw('tb_post_grp_connect INNER JOIN tb_post_grp ON tb_post_grp_connect.POST_GRP_ID = tb_post_grp.POST_GRP_ID'), 'tb_news.NEWS_ID', '=', 'tb_post_grp_connect.POST_ID')
             ->where('tb_post_grp.POST_GRP_ID', '=', 'N00001')
             ->orderBy('tb_news.NEWS_CREATE_TIMESTAMP', 'DESC')
@@ -110,8 +109,6 @@ class NewsModel
                 , 'tb_news.NEWS_TEXT_LINK AS newsTxtLnk'
                 , 'tb_news.NEWS_KEYWORD_'.$localeCode.' AS newsKeyWord'
                 , DB::raw('DATE_FORMAT(tb_news.NEWS_CREATE_TIMESTAMP, "%a, %d-%m-%Y") AS crtDt')
-                , 'tb_location.NATIONAL_NM_'.$localeCode.' AS ntnNm'
-                , 'tb_location.PROVINCE_NM_'.$localeCode.' AS prvNm'
                 , 'tb_img_mgmt.IMG_URL AS imgUrl'
                 , 'tb_img_mgmt.IMG_ALT AS imgAlt'
                 , 'tb_img_mgmt.IMG_TITLE AS imgTit'
@@ -122,7 +119,6 @@ class NewsModel
 
         $promotionNews = DB::table('tb_news')
             ->join('tb_img_mgmt', 'tb_news.NEWS_RPV_IMG_ID', '=', 'tb_img_mgmt.IMG_ID')
-            ->join('tb_location', 'tb_news.LOCATION_ID', '=', 'tb_location.LOCATION_ID')
             ->leftJoin(DB::raw('tb_post_grp_connect INNER JOIN tb_post_grp ON tb_post_grp_connect.POST_GRP_ID = tb_post_grp.POST_GRP_ID'), 'tb_news.NEWS_ID', '=', 'tb_post_grp_connect.POST_ID')
             ->where('tb_post_grp.POST_GRP_ID', '=', 'N00002')
             ->orderBy('tb_news.NEWS_CREATE_TIMESTAMP', 'DESC')
@@ -133,8 +129,6 @@ class NewsModel
                 , 'tb_news.NEWS_TEXT_LINK AS newsTxtLnk'
                 , 'tb_news.NEWS_KEYWORD_'.$localeCode.' AS newsKeyWord'
                 , DB::raw('DATE_FORMAT(tb_news.NEWS_CREATE_TIMESTAMP, "%a, %d-%m-%Y") AS crtDt')
-                , 'tb_location.NATIONAL_NM_'.$localeCode.' AS ntnNm'
-                , 'tb_location.PROVINCE_NM_'.$localeCode.' AS prvNm'
                 , 'tb_img_mgmt.IMG_URL AS imgUrl'
                 , 'tb_img_mgmt.IMG_ALT AS imgAlt'
                 , 'tb_img_mgmt.IMG_TITLE AS imgTit'
@@ -145,7 +139,7 @@ class NewsModel
 
         $generalNews = DB::table('tb_news')
             ->join('tb_img_mgmt', 'tb_news.NEWS_RPV_IMG_ID', '=', 'tb_img_mgmt.IMG_ID')
-            ->join('tb_location', 'tb_news.LOCATION_ID', '=', 'tb_location.LOCATION_ID')
+//            ->join('tb_location', 'tb_news.LOCATION_ID', '=', 'tb_location.LOCATION_ID')
             ->leftJoin(DB::raw('tb_post_grp_connect INNER JOIN tb_post_grp ON tb_post_grp_connect.POST_GRP_ID = tb_post_grp.POST_GRP_ID'), 'tb_news.NEWS_ID', '=', 'tb_post_grp_connect.POST_ID')
             ->where('tb_post_grp.POST_GRP_ID', '=', 'N00003')
             ->orderBy('tb_news.NEWS_CREATE_TIMESTAMP', 'DESC')
@@ -156,8 +150,6 @@ class NewsModel
                 , 'tb_news.NEWS_TEXT_LINK AS newsTxtLnk'
                 , 'tb_news.NEWS_KEYWORD_'.$localeCode.' AS newsKeyWord'
                 , DB::raw('DATE_FORMAT(tb_news.NEWS_CREATE_TIMESTAMP, "%a, %d-%m-%Y") AS crtDt')
-                , 'tb_location.NATIONAL_NM_'.$localeCode.' AS ntnNm'
-                , 'tb_location.PROVINCE_NM_'.$localeCode.' AS prvNm'
                 , 'tb_img_mgmt.IMG_URL AS imgUrl'
                 , 'tb_img_mgmt.IMG_ALT AS imgAlt'
                 , 'tb_img_mgmt.IMG_TITLE AS imgTit'
@@ -196,7 +188,6 @@ class NewsModel
     public function getNewsListGroupModel($localeCode, $groupLink){
         $result = DB::table('tb_news')
             ->join('tb_img_mgmt', 'tb_news.NEWS_RPV_IMG_ID', '=', 'tb_img_mgmt.IMG_ID')
-            ->join('tb_location', 'tb_news.LOCATION_ID', '=', 'tb_location.LOCATION_ID')
             ->leftJoin(DB::raw('tb_post_grp_connect INNER JOIN tb_post_grp ON tb_post_grp_connect.POST_GRP_ID = tb_post_grp.POST_GRP_ID'), 'tb_news.NEWS_ID', '=', 'tb_post_grp_connect.POST_ID')
             ->where('tb_post_grp.POST_LINK', '=', $groupLink)
             ->select(
@@ -206,8 +197,6 @@ class NewsModel
                 , 'tb_news.NEWS_TEXT_LINK AS newsTxtLnk'
                 , 'tb_news.NEWS_KEYWORD_'.$localeCode.' AS newsKeyWord'
                 , DB::raw('DATE_FORMAT(tb_news.NEWS_CREATE_TIMESTAMP, "%a, %d-%m-%Y") AS crtDt')
-                , 'tb_location.NATIONAL_NM_'.$localeCode.' AS ntnNm'
-                , 'tb_location.PROVINCE_NM_'.$localeCode.' AS prvNm'
                 , 'tb_img_mgmt.IMG_URL AS imgUrl'
                 , 'tb_img_mgmt.IMG_ALT AS imgAlt'
                 , 'tb_img_mgmt.IMG_TITLE AS imgTit'
@@ -226,7 +215,6 @@ class NewsModel
     public function getNewsDetailModel($localeCode, $newsLink){
         $result = DB::table('tb_news')
             ->join('tb_img_mgmt', 'tb_news.NEWS_RPV_IMG_ID', '=', 'tb_img_mgmt.IMG_ID')
-            ->join('tb_location', 'tb_news.LOCATION_ID', '=', 'tb_location.LOCATION_ID')
             ->leftJoin(DB::raw('tb_post_grp_connect INNER JOIN tb_post_grp ON tb_post_grp_connect.POST_GRP_ID = tb_post_grp.POST_GRP_ID'), 'tb_news.NEWS_ID', '=', 'tb_post_grp_connect.POST_ID')
             ->where('tb_news.NEWS_TEXT_LINK', '=', $newsLink)
             ->select(
@@ -237,8 +225,6 @@ class NewsModel
                 , 'tb_news.NEWS_TEXT_LINK AS newsTxtLnk'
                 , 'tb_news.NEWS_KEYWORD_'.$localeCode.' AS newsKeyWord'
                 , DB::raw('DATE_FORMAT(tb_news.NEWS_CREATE_TIMESTAMP, "%a, %d-%m-%Y") AS crtDt')
-                , 'tb_location.NATIONAL_NM_'.$localeCode.' AS ntnNm'
-                , 'tb_location.PROVINCE_NM_'.$localeCode.' AS prvNm'
                 , 'tb_img_mgmt.IMG_URL AS imgUrl'
                 , 'tb_img_mgmt.IMG_ALT AS imgAlt'
                 , 'tb_img_mgmt.IMG_TITLE AS imgTit'
@@ -278,7 +264,6 @@ class NewsModel
         $result = DB::table('tb_news')
             ->join('tb_post_grp_connect', 'tb_news.NEWS_ID', '=', 'tb_post_grp_connect.POST_ID')
             ->join('tb_img_mgmt', 'tb_news.NEWS_RPV_IMG_ID', '=', 'tb_img_mgmt.IMG_ID')
-            ->join('tb_location', 'tb_news.LOCATION_ID', '=', 'tb_location.LOCATION_ID')
             ->where('tb_post_grp_connect.POST_GRP_ID', '='
                 , DB::raw('(SELECT
                                 tb_post_grp_connect.POST_GRP_ID
@@ -299,8 +284,6 @@ class NewsModel
                 , 'tb_news.NEWS_TITLE_'.$localeCode.' AS newsTit'
                 , 'tb_news.NEWS_TEXT_LINK AS newsTxtLnk'
                 , DB::raw('DATE_FORMAT(tb_news.NEWS_CREATE_TIMESTAMP, "%a, %d-%m-%Y") AS crtDt')
-                , 'tb_location.NATIONAL_NM_'.$localeCode.' AS ntnNm'
-                , 'tb_location.PROVINCE_NM_'.$localeCode.' AS prvNm'
                 , 'tb_img_mgmt.IMG_URL AS imgUrl'
                 , 'tb_img_mgmt.IMG_ALT AS imgAlt'
                 , 'tb_img_mgmt.IMG_TITLE AS imgTit'

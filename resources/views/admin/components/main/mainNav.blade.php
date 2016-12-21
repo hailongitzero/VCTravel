@@ -93,6 +93,17 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="#"><i class="icon-edit icon-white"></i><span>Slide</span></a>
+            <ul class="subnav">
+                <li>
+                    <a href="{{ url('admin/slide-list') }}">Slide List</a>
+                </li>
+                <li>
+                    <a href="{{ url('admin/slide-edit') }}">Add Slide</a>
+                </li>
+            </ul>
+        </li>
     </ul>
     <div class="status button">
         <div class="status-top">

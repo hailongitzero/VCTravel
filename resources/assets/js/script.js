@@ -1172,6 +1172,8 @@ function mobile_nav_switcher_init() {
 
 	jQuery(document).on("click", "header nav .inner-nav.mobile_nav .mobile_menu_switcher", function() {
 		var nav = get_current_nav_level();
+        var cls = "opened";
+
 		if ( nav_container.hasClass(cls) ){
 			nav.stop().animate( {"margin-top": window.mobile_nav.animation_params.vertical_start + "px","opacity":0}, window.mobile_nav.animation_params.speed, function() {
 				nav_container.removeClass(cls);

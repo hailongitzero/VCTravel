@@ -187,6 +187,10 @@ input {
     width: 50%;
     min-height: 200px; }
 
+.news-cate-item {
+  height: 140px;
+  max-height: 140px; }
+
 .blog-item .blog-media {
   width: 50%; }
   .blog-item .blog-media:before {

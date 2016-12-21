@@ -164,7 +164,7 @@ html, body {
     font-family: 'Hind Siliguri', sans-serif;
     color: #b5b5b5;
     line-height: 1.75;
-    font-size: 15px;
+    font-size: 14px;
     -webkit-font-smoothing: antialiased;
     letter-spacing: 0.2px;
 }
@@ -1108,6 +1108,9 @@ hr {
     float: left;
     margin-right: 20px;
 }
+@media (max-width: 1200px) {
+    .nav-logo-wrap {
+        width: 150px;  } }
 
 .nav-logo-wrap .logo {
     display: block;
@@ -5275,7 +5278,7 @@ nav .inner-nav.mobile_nav.opened ul {
 /*  */
 .tp-caption {
     color: #ffffff;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
 
 .tp-caption .sl-title-top {
@@ -5284,6 +5287,7 @@ nav .inner-nav.mobile_nav.opened ul {
     width: 750px;
     padding-bottom: 20px;
 }
+
 
 .tp-caption .sl-title {
     font-size: 5em;

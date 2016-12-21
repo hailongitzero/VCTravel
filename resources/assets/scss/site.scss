@@ -312,9 +312,11 @@ input{
     }
   }
 }
-
+.news-cate-item{
+  height: 140px;
+  max-height: 140px;
+}
 .blog-item{
-  //max-height: 200px;
   .blog-media{
     width: 50%;
     &:before{
