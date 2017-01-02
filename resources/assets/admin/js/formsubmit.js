@@ -153,7 +153,7 @@ $(document).ready(function() {
         var data = new FormData();
         data.append('tourId', $(this).attr('item-data'));
         data.append('tourRpv', $(trObject.find('input')[0]).is(':checked') == true ? "Y": "N");
-        data.append('tourPrm', $(trObject.find('input')[1]).is(':checked') == true ? "Y": "N");
+        data.append('tourRcm', $(trObject.find('input')[1]).is(':checked') == true ? "Y": "N");
         data.append('tourAct', $(trObject.find('input')[2]).is(':checked') == true ? "Y": "N");
         data.append('_token', $('meta[name="csrf-token"]').attr('content'));
         data.append('header', $('meta[name="csrf-token"]').attr('content'));
@@ -623,4 +623,40 @@ $(document).ready(function() {
             $(this).find('p.error').remove();
         })
     }
+
+
+
+    $('#btnViewVi').on('click', function(){
+        var formData = new FormData();
+        formData.append('pageCode', CKEDITOR.instances.pageCodeVi.getData());
+        formData.append('_token', $('meta[name="csrf-token"]').attr('content'));
+        formData.append('header', $('meta[name="csrf-token"]').attr('content'));
+
+        $.ajax({
+            type: 'POST',
+            url: '/admin/page-review',
+            data: formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            dataType: 'json',
+            success: function (response) {
+
+            },
+            error: function (xhr) {
+            }
+        });
+    })
+
+    $('#btnViewEn').on('click', function(){
+        var formData = new FormData();
+        formData.append('pageCode', CKEDITOR.instances.pageCodeEn.getData());
+        formData.append('_token', $('meta[name="csrf-token"]').attr('content'));
+        formData.append('header', $('meta[name="csrf-token"]').attr('content'));
+
+        localStorage.removeItem('pageCode');
+        localStorage.setItem('pageCode', CKEDITOR.instances.pageCodeEn.getData());
+
+        window.open('/page-review', '_blank');
+        // window.location.href = "/page-review";
+    })
 });

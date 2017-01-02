@@ -7425,9 +7425,9 @@ body .tparrows {
 }
 
 .tabs .block-tabs-btn .tabs-btn {
-    font-family: Montserrat;
+    font-family: roboto;
     color: #a9b5c1;
-    font-weight: 600;
+    font-weight: 500;
     float: left;
     height: 48px;
     padding: 0 25px;

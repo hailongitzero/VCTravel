@@ -246,7 +246,6 @@ class AdminTourController extends Controller
 
         $imgList = $photoModel->getImgReferList('tb_tours', $tourId, 'TOUR_ID');
 
-
         return view('','');
     }
 }

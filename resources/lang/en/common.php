@@ -18,10 +18,28 @@ return [
     |
     */
 
+    'search' => 'Search',
     'detail' => 'Detail',
     'readMore' => 'Readmore',
     'search' => 'Search',
     'tourBooking' => 'Booking',
     'enterEmail' => 'Enter your email',
-    'subcEmai' => 'Get latest offer'
+    'subcEmai' => 'Get latest offer',
+    'subcToday' => 'subscribe today',
+    'headquarter' => 'Headquarter',
+    'headAddr' => ' 96 Ly Thuong Kiet st, Dong Hoi City, Quang Binh prov.',
+    'branch' => 'Branch',
+    'branchAddr' => '119 Cau Giay st., Cau Giay dist., Ha Noi capt.',
+    'overview' => 'Overview',
+    'review' => 'Reviews',
+    'writeReview' => 'write a reviews',
+    'price' => 'Price',
+    'rate' => 'Rate',
+    'reviewContent' => 'Message of your review',
+    'reviewTitle' => 'Title of your review',
+    'address' => 'Address',
+    'mobile' => 'Mobile',
+    'firstName' => 'First Name',
+    'lastName' => 'Last Name',
+    'addReview' => 'Add a review',
 ];

@@ -483,10 +483,11 @@
                                                 <div class="box-head">
                                                     <i class="icon-list-ul"></i>
                                                     <span> Multiple file upload
-                                                </span>
+                                                        </span>
                                                 </div>
                                                 <div class="box-body box-body-nopadding">
-                                                    <div class="plupload" id="imgListUpload"></div>
+                                                    <div id="uploader">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

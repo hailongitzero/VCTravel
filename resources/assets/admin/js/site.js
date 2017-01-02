@@ -26,6 +26,10 @@ $(document).ready(function() {
         CKEDITOR.replace( 'slideCntEn' );
         CKEDITOR.add;
     }
+    if(document.getElementById("pageCodeEn") != null){
+        CKEDITOR.replace( 'pageCodeEn' );
+        CKEDITOR.add;
+    }
 
     //switch checkbox style for data table
     $("[class='switch-checkbox']").bootstrapSwitch();

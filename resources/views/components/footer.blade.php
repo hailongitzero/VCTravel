@@ -23,8 +23,8 @@
                 <div class="widget-footer">
                     <h4>Contact</h4>
                     <div class="twitter-footer align-left">
-                        <p><span>Trụ Sở:</span> 96 Lý Thường Kiệt, TP. Đồng Hới, Quảng Bình</p>
-                        <p><span>Chi Nhánh:</span> 119 Đường Cầu giấy, Quận Cầu Giấy, Hà Nội</p>
+                        <p><span>{{ trans('common.headquarter') }}</span> {{ trans('common.headAddr') }}</p>
+                        <p><span>{{ trans('common.branch') }}</span> {{ trans('common.branchAddr') }}</p>
                         <p><span>Tel:</span> (052)3 82 88 82 - Fax: (052)3 852 999</p>
                         <p><span>Hotline:</span> 0905 99 79 89</p>
                         <p><span>Email:</span><a href="mailto:vungchuatravel@gmail.com"> vungchuatravel@gmail.com</a></p>

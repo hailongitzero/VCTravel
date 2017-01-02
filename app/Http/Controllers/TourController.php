@@ -24,7 +24,7 @@ class TourController extends Controller
         /* Load Mode */
         $headerModel = new Models\HeaderModel();
         $tourModel = new Models\TourModel();
-        $breadCrumbModel = new Models\breadCrumbsModel();
+        $breadCrumbModel = new Models\BreadCrumbsModel();
 
         /* Init Data */
         $headerData = $headerModel->index($localCode);
@@ -51,7 +51,7 @@ class TourController extends Controller
         /* Load Mode */
         $headerModel = new Models\HeaderModel();
         $tourModel = new Models\TourModel();
-        $breadCrumbModel = new Models\breadCrumbsModel();
+        $breadCrumbModel = new Models\BreadCrumbsModel();
 
         /* Init Data */
         $headerData = $headerModel->index($localCode);
@@ -77,7 +77,7 @@ class TourController extends Controller
         /* Load Mode */
         $headerModel = new Models\HeaderModel();
         $tourModel = new Models\TourModel();
-        $breadCrumbModel = new Models\breadCrumbsModel();
+        $breadCrumbModel = new Models\BreadCrumbsModel();
         $commonModel = new Models\CommonModel();
 
         /* Init Data */

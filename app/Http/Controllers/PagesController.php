@@ -27,7 +27,7 @@ class PagesController extends Controller
 
         /* Load Mode */
         $headerModel = new Models\HeaderModel();
-        $breadCrumbModel = new Models\breadCrumbsModel();
+        $breadCrumbModel = new Models\BreadCrumbsModel();
         $pageModel = new Models\PagesModel();
 
         /* Init Data */

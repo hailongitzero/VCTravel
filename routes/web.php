@@ -98,6 +98,15 @@ Route::POST('admin/slideEditor', 'Admin\SlideController@slideEditor')->middlewar
 //Slide Update
 Route::POST('admin/slideUpdate', 'Admin\SlideController@slideUpdate')->middleware('auth', 'admin');
 
+//Page List
+Route::get('admin/page-list', 'Admin\PagesController@getPagesList')->middleware('auth', 'admin');
+//page edit
+Route::get('admin/page-edit/{id}', 'Admin\PagesController@pageDetail')->middleware('auth', 'admin');
+//page create
+Route::get('admin/page-edit', 'Admin\PagesController@createPage')->middleware('auth', 'admin');
+//page review
+Route::get('page-review', 'Admin\PagesController@pageReview');
+
 Auth::routes();
 
 

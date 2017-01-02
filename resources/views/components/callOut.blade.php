@@ -11,7 +11,7 @@
         <div class="call-out-box clearfix with-icon">
             <div class="row call-out-wrap">
                 <div class="col-md-5">
-                    <h6 class="title-section-top gray font-4">subscribe today</h6>
+                    <h6 class="title-section-top gray font-4">{{ trans('common.subcToday') }}</h6>
                     <h2 class="title-section alt-2">{{ trans('common.subcEmai') }}</h2>
                     <i class="flaticon-suntour-email call-out-icon"></i>
                     {{--<i class="flaticon-suntour-email call-out-icon"></i>--}}

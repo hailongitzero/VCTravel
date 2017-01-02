@@ -26,7 +26,7 @@ class NewsController extends Controller
 
         /* Load Mode */
         $headerModel = new Models\HeaderModel();
-        $breadCrumbModel = new Models\breadCrumbsModel();
+        $breadCrumbModel = new Models\BreadCrumbsModel();
         $newsModel = new Models\NewsModel();
 
         /* Init Data */
@@ -54,7 +54,7 @@ class NewsController extends Controller
 
         /* Load Mode */
         $headerModel = new Models\HeaderModel();
-        $breadCrumbModel = new Models\breadCrumbsModel();
+        $breadCrumbModel = new Models\BreadCrumbsModel();
         $newsModel = new Models\NewsModel();
 
         /* Init Data */
@@ -81,7 +81,7 @@ class NewsController extends Controller
 
         /* Load Mode */
         $headerModel = new Models\HeaderModel();
-        $breadCrumbModel = new Models\breadCrumbsModel();
+        $breadCrumbModel = new Models\BreadCrumbsModel();
         $newsModel = new Models\NewsModel();
         $commonModel = new Models\CommonModel();
 

@@ -8,7 +8,7 @@
 ?>
 <div class="content-body">
     <div class="container page">
-        <h2 class="title-section mb-5"><span>Search</span> Tours</h2>
+        <h2 class="title-section mb-5"><span>{{ trans('common.search') }}</span> Tours</h2>
         <div class="search-hotels mb-40 pattern">
             <form action="">
                 <div class="tours-container">

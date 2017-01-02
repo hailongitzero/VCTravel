@@ -102,6 +102,7 @@
 <script type="text/javascript" src="/resources/assets/js/star-rating.js"></script>
 <script type="text/javascript" src="/resources/assets/themes/krajee-fa/theme.js"></script>
 <script type="text/javascript" src="/resources/assets/js/site.js"></script>
+@stack('scripts')
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];

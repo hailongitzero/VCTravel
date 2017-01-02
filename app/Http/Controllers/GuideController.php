@@ -19,7 +19,7 @@ class GuideController extends Controller
 
         /* Load Mode */
         $headerModel = new Models\HeaderModel();
-        $breadCrumbModel = new Models\breadCrumbsModel();
+        $breadCrumbModel = new Models\BreadCrumbsModel();
         $guideMode = new Models\GuideModel();
 
         /* Init Data */
@@ -42,7 +42,7 @@ class GuideController extends Controller
 
         /* Load Mode */
         $headerModel = new Models\HeaderModel();
-        $breadCrumbModel = new Models\breadCrumbsModel();
+        $breadCrumbModel = new Models\BreadCrumbsModel();
         $guideMode = new Models\GuideModel();
 
         /* Init Data */

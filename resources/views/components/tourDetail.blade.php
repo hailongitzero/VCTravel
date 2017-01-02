@@ -12,8 +12,8 @@
             <ul class="magic-line">
                 @if(isset($mdTourDetail))
                     @foreach($mdTourDetail as $tourHd)
-                        <li class="current_item"><a href="hotels-details.html#overview" class="scrollto">Overview</a></li>
-                        <li><a href="hotels-details.html#reviews" class="scrollto">Reviews ({{$tourHd->tourRateSeq}}) <div class="stars-perc"><span style="width:{{$tourHd->tourRate}}%"></span></div></a></li>
+                        <li class="current_item"><a href="hotels-details.html#overview" class="scrollto">{{ trans('common.overview') }}</a></li>
+                        <li><a href="hotels-details.html#reviews" class="scrollto">{{ trans('common.review') }} ({{$tourHd->tourRateSeq}}) <div class="stars-perc"><span style="width:{{$tourHd->tourRate}}%"></span></div></a></li>
                     @endforeach
                 @endif
             </ul>
@@ -40,68 +40,205 @@
                        @endif
                    </ul>
                </div>
+               @if(isset($mdTourDetail))
+                   @foreach($mdTourDetail as $tour)
+                        <h4 class="mb-20">{{$tour->tourTit}}</h4>
+                        <div class="tabs">
+                   <div class="block-tabs-btn clearfix">
+                       <div data-tabs-id="tabs1" class="tabs-btn active">{{ trans('tour.tourContent') }}</div>
+                       <div data-tabs-id="tabs2" class="tabs-btn">{{ trans('tour.tourSchedule') }}</div>
+                       <div data-tabs-id="tabs3" class="tabs-btn">{{ trans('tour.tourReview') }}</div>
+                       <div data-tabs-id="tabs4" class="tabs-btn">{{ trans('tour.tourComment') }}</div>
+                   </div>
+                   <!-- tabs keeper-->
+                   <div class="tabs-keeper">
+                       <div data-tabs-id="cont-tabs1" class="container-tabs active">
+                           {!! $tour->tourCnt !!}
+                       </div>
+                       <div data-tabs-id="cont-tabs2" class="container-tabs">
+                           {!! $tour->tourSchedule !!}
+                       </div>
+                       <div data-tabs-id="cont-tabs3" class="container-tabs">
+                           <!-- section reviews-->
+                           <div id="reviews">
+                               <h4 class="trans-uppercase mb-10">{{ trans('common.review') }}</h4>
+                               <div class="cws_divider mb-30"></div>
+                               <div class="reviews-wrap">
+                                   <div class="reviews-top pattern relative">
+                                       @if(isset($mdTourDetail))
+                                           @foreach($mdTourDetail as $tourHd)
+                                               <div class="reviews-total">
+                                                   @if(($tourHd->tourRate)/20 <= 1)
+                                                       <h5>Terrible</h5>
+                                                   @elseif(($tourHd->tourRate)/20 <= 2)
+                                                       <h5>Bad</h5>
+                                                   @elseif(($tourHd->tourRate)/20 <= 3)
+                                                       <h5>Normal</h5>
+                                                   @elseif(($tourHd->tourRate)/20 <= 4)
+                                                       <h5>Good</h5>
+                                                   @elseif(($tourHd->tourRate)/20 <= 5)
+                                                       <h5>Excellent</h5>
+                                                   @endif
+                                                   <div class="reviews-sub-mark">{{($tourHd->tourRate)/20}}</div>
+                                                   <div class="stars-perc"><span style="width:{{$tourHd->tourRate}}%; max-width: 100%"></span></div><span>{{$tourHd->tourRateSeq}} {{ trans('common.review') }}</span>
+                                               </div>
+                                               <div class="reviews-marks">
+                                               </div>
+                                           @endforeach
+                                       @endif
+                                   </div>
+                                   <div class="comments">
+                                       @if(isset($mdTourComment))
+                                           @foreach($mdTourComment as $tourCm)
+                                               <div class="comment-body">
+                                                   <div class="avatar"><img src="/resources/assets/img/dummy.png" data-at2x="/resources/assets/img/dummy.png" alt></div>
+                                                   <div class="comment-info">
+                                                       <div class="comment-meta">
+                                                           <div class="title">
+                                                               <h5>{{$tourCm->cmTit}} <span>{{$tourCm->cmLName.' '.$tourCm->cmFName}}</span></h5>
+                                                           </div>
+                                                           <div class="comment-date">
+                                                               <div class="stars stars-{{$tourCm->cmRate}}">{{$tourCm->cmRate}}</div><span>{{$tourCm->cmCrtDt}}</span>
+                                                           </div>
+                                                       </div>
+                                                       <div class="comment-content">
+                                                           <p>{{$tourCm->cmCnt}}</p>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           @endforeach
+                                       @endif
+                                   </div>
+                               </div>
+
+                               <h4 class="trans-uppercase mb-10">{{ trans('common.writeReview') }}</h4>
+                               <div class="cws_divider mb-30"></div>
+
+                               <div class="review-content pattern relative">
+                                   @if(isset($mdTourDetail))
+                                       @foreach($mdTourDetail as $tourVw)
+                                           <div class="row">
+                                               <div class="col-md-5 mb-md-30 mb-xs-0">
+                                                   <div class="review-total"><img src="{{$tourVw->imgUrl}}" data-at2x="{{$tourVw->imgUrl}}" alt>
+                                                       <div class="review-total-content">
+                                                           <h6>{{$tourVw->tourTit}}</h6>
+                                                           <div class="stars-perc"><span style="width:{{$tourVw->tourRate}}%"></span></div><span>{{$tourVw->tourRateSeq}} {{ trans('common.review') }}</span>
+                                                           <ul class="icon">
+                                                               <li>{{$tourVw->prvNm}}, {{$tourVw->ntnNm}}<i class="flaticon-suntour-map"></i></li>
+                                                           </ul>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                               <div class="col-md-7">
+                                                   <div class="review-marks clearfix mb-30">
+                                                       <ul>
+                                                           <li>
+                                                               <label for="tourRate" class="control-label">{{ trans('common.rate') }}</label>
+                                                               <input id="tourRate" name="tourRate" class="rating rating-loading" data-min="0" data-max="5" data-step="1">
+                                                           </li>
+                                                       </ul>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <form id="tour-review-form" class="form clearfix" action="" method="POST">
+                                               <div class="row">
+                                                   <div class="col-md-12">
+                                                       <div id="feedback-form-success" class="review_server_response"></div>
+                                                       {{ csrf_field() }}
+                                                       <input name="_method" type="hidden" value="GET">
+                                                       <input id="rateValue" name="rateValue" type="hidden" value="5" aria-required="true" required>
+                                                   </div>
+                                                   <div class="col-md-4">
+                                                       <input type="hidden" id="tourID" name="tourID" value="{{$tourVw->tourId}}"  aria-required="true" required>
+                                                       <input type="text" id="firstName" name="firstName" value="" size="40" placeholder="{{ trans('common.firstName') }}" aria-required="true" class="form-row form-row-first" required>
+                                                   </div>
+                                                   <div class="col-md-4">
+                                                       <input type="text" id="lastName" name="lastName" value="" size="40" placeholder="{{ trans('common.lastName') }}" aria-required="true" class="form-row form-row-first" required>
+                                                   </div>
+                                                   <div class="col-md-4">
+                                                       <input type="email" id="email" name="email" value="" size="40" placeholder="Email" aria-required="true" class="form-row form-row-first" required>
+                                                   </div>
+                                                   <div class="col-md-12">
+                                                       <input type="text" id="title" name="title" value="" size="40" placeholder="{{trans('common.reviewTitle')}}" required aria-required="true" class="form-row form-row-last">
+                                                   </div>
+                                                   <div class="col-md-12">
+                                                       <textarea name="content" id="content" cols="40" rows="4" placeholder="{{trans('common.reviewContent')}}" aria-invalid="false" required aria-required="true" class="mb-20"></textarea>
+                                                       <input type="submit" value="{{ trans('common.addReview') }}" class="cws-button alt float-right">
+                                                   </div>
+                                               </div>
+                                           </form>
+                                       @endforeach
+                                   @endif
+                               </div>
+                           </div>
+                       </div>
+                       <div data-tabs-id="cont-tabs4" class="container-tabs">
+                           <div class="fb-comments" data-href="" data-width="100%" data-numposts="5"></div>
+                       </div>
+                   </div>
+                   <!-- /tabs keeper-->
+               </div>
+                   @endforeach
+               @endif
            </div>
            <div class="col-md-4">
-               <div class="fb-comments" data-href="" data-width="100%" data-numposts="5"></div>
+               @if(isset($mdTourDetail))
+                   @foreach($mdTourDetail as $tour)
+                   <h4 class="mb-20">{{$tour->tourTit}}</h4>
+                   <div class="bg-info p-30-40">
+                       <table class="table alt table-info">
+                           <tbody>
+                           <tr>
+                               <td width="50%">Price</td>
+                               <td><span class="price">{{$tour->tourPrc.' '.$tour->tourCurrUnt}}</span></td>
+                           </tr>
+                           <tr>
+                               <td>Length</td>
+                               <td>{{$tour->tourLgt}}</td>
+                           </tr>
+                           <tr>
+                               <td>Promotion</td>
+                               <td><span class="prm">{{$tour->tourPrmPrc.' %'}}</span></td>
+                           </tr>
+                           <tr>
+                               <td>Price after Promotion</td>
+                               <td><span class="price">{{$tour->tourFnlPrc.' '.$tour->tourCurrUnt}}</span></td>
+                           </tr>
+                           </tbody>
+                       </table>
+                       <div class="btn-cover-layout">
+                           <a id="tour-booking" href="#!" class="cws-button small alt mb-20">{{ trans('common.tourBooking') }}</a>
+                       </div>
+                   </div>
+                   <div class="sidebar">
+                       <aside class="sb-right pb-50-imp">
+                           <!-- widget post-->
+                           <div class="cws-widget">
+                               <div class="widget-post">
+                                   <h2 class="widget-title alt">{{ trans('tour.tourRelative') }}</h2>
+                               @if(isset($mdTourRelate))
+                                   @foreach($mdTourRelate as $tr)
+                                       <!-- item recent post-->
+                                           <div class="item-recent clearfix">
+                                               <div class="widget-post-media"><img src="{{$tr->imgTp =='R' ? $tr->imgUrl : url('/').$tr->imgUrl}}" data-at2x="{{$tr->imgTp =='R' ? substr($tr->imgUrl, 0, -4).'@2x'.substr($tr->imgUrl, -4, 4) : substr(url('/').$tr->imgUrl, 0, -4).'@2x'.substr(url('/').$tr->imgUrl, -4, 4)}}" alt="{{$tr->imgAlt}}"></div>
+                                               <h3 class="title"><a href="{{url('tour-detail/'.$tr->tourTxtLnk)}}">{{$tr->tourTit}}</a></h3>
+                                               <div class="date-recent">{{$tr->crtDt}}</div>
+                                           </div>
+                                           <!-- ! item recent post-->
+                                       @endforeach
+                                   @endif
+                               </div>
+                           </div>
+                           <!-- ! widget post-->
+                       </aside>
+                   </div>
+               @endforeach
+           @endif
            </div>
        </div>
     </div>
-    <div class="container mt-30">
-        @if(isset($mdTourDetail))
-            @foreach($mdTourDetail as $tour)
-                <h4 class="mb-20">{{$tour->tourTit}}</h4>
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="tabs">
-                            <div class="block-tabs-btn clearfix">
-                                <div data-tabs-id="tabs1" class="tabs-btn active">Tour Content</div>
-                                <div data-tabs-id="tabs2" class="tabs-btn">Schedule Detail</div>
-                            </div>
-                            <!-- tabs keeper-->
-                            <div class="tabs-keeper">
-                                <div data-tabs-id="cont-tabs1" class="container-tabs active">
-                                    {!! $tour->tourCnt !!}
-                                </div>
-                                <div data-tabs-id="cont-tabs2" class="container-tabs">
-                                    {!! $tour->tourSchedule !!}
-                                </div>
-                            </div>
-                            <!-- /tabs keeper-->
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="bg-info p-30-40">
-                            <table class="table alt table-info">
-                                <tbody>
-                                <tr>
-                                    <td width="50%">Price</td>
-                                    <td><span class="price">{{$tour->tourPrc.' '.$tour->tourCurrUnt}}</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Length</td>
-                                    <td>{{$tour->tourLgt}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Promotion</td>
-                                    <td><span class="prm">{{$tour->tourPrmPrc.' %'}}</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Price after Promotion</td>
-                                    <td><span class="price">{{$tour->tourFnlPrc.' '.$tour->tourCurrUnt}}</span></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <div class="btn-cover-layout">
-                                <a id="tour-booking" href="#!" class="cws-button small alt mb-20">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        @endif
-    </div>
 
-    <!-- login popup-->
+    <!-- booking popup-->
     <div id="tour-popup" class="tour-popup">
         <div class="tour-popup-wrap">
             <div class="container-fluid">
@@ -175,147 +312,4 @@
         </div>
     </div>
     <!-- ! booking popup-->
-
-    <!-- section reviews-->
-    <div id="reviews" class="container mb-60">
-        <div class="row">
-            <div class="col-md-8">
-                <h4 class="trans-uppercase mb-10">Reviews travellers</h4>
-                <div class="cws_divider mb-30"></div>
-
-                <div class="reviews-wrap">
-                    <div class="reviews-top pattern relative">
-                        @if(isset($mdTourDetail))
-                            @foreach($mdTourDetail as $tourHd)
-                                <div class="reviews-total">
-                                    @if(($tourHd->tourRate)/20 <= 1)
-                                        <h5>Terrible</h5>
-                                    @elseif(($tourHd->tourRate)/20 <= 2)
-                                        <h5>Bad</h5>
-                                    @elseif(($tourHd->tourRate)/20 <= 3)
-                                        <h5>Normal</h5>
-                                    @elseif(($tourHd->tourRate)/20 <= 4)
-                                        <h5>Good</h5>
-                                    @elseif(($tourHd->tourRate)/20 <= 5)
-                                        <h5>Excellent</h5>
-                                    @endif
-                                    <div class="reviews-sub-mark">{{($tourHd->tourRate)/20}}</div>
-                                    <div class="stars-perc"><span style="width:{{$tourHd->tourRate}}%; max-width: 100%"></span></div><span>{{$tourHd->tourRateSeq}} reviews</span>
-                                </div>
-                                <div class="reviews-marks">
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
-                    <div class="comments">
-                        @if(isset($mdTourComment))
-                            @foreach($mdTourComment as $tourCm)
-                                <div class="comment-body">
-                                    <div class="avatar"><img src="/resources/assets/img/dummy.png" data-at2x="/resources/assets/img/dummy.png" alt></div>
-                                    <div class="comment-info">
-                                        <div class="comment-meta">
-                                            <div class="title">
-                                                <h5>{{$tourCm->cmTit}} <span>{{$tourCm->cmLName.' '.$tourCm->cmFName}}</span></h5>
-                                            </div>
-                                            <div class="comment-date">
-                                                <div class="stars stars-{{$tourCm->cmRate}}">{{$tourCm->cmRate}}</div><span>{{$tourCm->cmCrtDt}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="comment-content">
-                                            <p>{{$tourCm->cmCnt}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
-                    <div class="reviews-bottom">
-                        <h4>You've been travel this tour?</h4>
-                    </div>
-                </div>
-
-                <h4 class="trans-uppercase mb-10">Write a review</h4>
-                <div class="cws_divider mb-30"></div>
-
-                <div class="review-content pattern relative">
-                    @if(isset($mdTourDetail))
-                        @foreach($mdTourDetail as $tourVw)
-                            <div class="row">
-                                <div class="col-md-5 mb-md-30 mb-xs-0">
-                                    <div class="review-total"><img src="{{$tourVw->imgUrl}}" data-at2x="{{$tourVw->imgUrl}}" alt>
-                                        <div class="review-total-content">
-                                            <h6>{{$tourVw->tourTit}}</h6>
-                                            <div class="stars-perc"><span style="width:{{$tourVw->tourRate}}%"></span></div><span>{{$tourVw->tourRateSeq}} reviews</span>
-                                            <ul class="icon">
-                                                <li>{{$tourVw->prvNm}}, {{$tourVw->ntnNm}}<i class="flaticon-suntour-map"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="review-marks clearfix mb-30">
-                                        <ul>
-                                            <li>
-                                                <label for="tourRate" class="control-label">Rate This</label>
-                                                <input id="tourRate" name="tourRate" class="rating rating-loading" data-min="0" data-max="5" data-step="1">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <form id="tour-review-form" class="form clearfix" action="" method="POST">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div id="feedback-form-success" class="review_server_response"></div>
-                                        {{ csrf_field() }}
-                                        <input name="_method" type="hidden" value="GET">
-                                        <input id="rateValue" name="rateValue" type="hidden" value="5" aria-required="true" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="hidden" id="tourID" name="tourID" value="{{$tourVw->tourId}}"  aria-required="true" required>
-                                        <input type="text" id="firstName" name="firstName" value="" size="40" placeholder="First Name" aria-required="true" class="form-row form-row-first" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="text" id="lastName" name="lastName" value="" size="40" placeholder="Last Name" aria-required="true" class="form-row form-row-first" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="email" id="email" name="email" value="" size="40" placeholder="Email" aria-required="true" class="form-row form-row-first" required>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <input type="text" id="title" name="title" value="" size="40" placeholder="Title of your review" required aria-required="true" class="form-row form-row-last">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <textarea name="content" id="content" cols="40" rows="4" placeholder="Message of your review" aria-invalid="false" required aria-required="true" class="mb-20"></textarea>
-                                        <input type="submit" value="Add a review" class="cws-button alt float-right">
-                                    </div>
-                                </div>
-                            </form>
-                        @endforeach
-                    @endif
-                </div>
-            </div>
-            <div class="col-md-4 sidebar">
-                <aside class="sb-right pb-50-imp">
-                    <!-- widget post-->
-                    <div class="cws-widget">
-                        <div class="widget-post">
-                            <h2 class="widget-title alt">Tour Relative</h2>
-                            @if(isset($mdTourRelate))
-                                @foreach($mdTourRelate as $tr)
-                                <!-- item recent post-->
-                                    <div class="item-recent clearfix">
-                                        <div class="widget-post-media"><img src="{{$tr->imgTp =='R' ? $tr->imgUrl : url('/').$tr->imgUrl}}" data-at2x="{{$tr->imgTp =='R' ? substr($tr->imgUrl, 0, -4).'@2x'.substr($tr->imgUrl, -4, 4) : substr(url('/').$tr->imgUrl, 0, -4).'@2x'.substr(url('/').$tr->imgUrl, -4, 4)}}" alt="{{$tr->imgAlt}}"></div>
-                                        <h3 class="title"><a href="{{url('tour-detail/'.$tr->tourTxtLnk)}}">{{$tr->tourTit}}</a></h3>
-                                        <div class="date-recent">{{$tr->crtDt}}</div>
-                                    </div>
-                                    <!-- ! item recent post-->
-                                @endforeach
-                            @endif
-                        </div>
-                    </div>
-                    <!-- ! widget post-->
-                </aside>
-            </div>
-        </div>
-    </div>
 </section>
