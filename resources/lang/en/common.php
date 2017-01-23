@@ -27,7 +27,7 @@ return [
     'subcEmai' => 'Get latest offer',
     'subcToday' => 'subscribe today',
     'headquarter' => 'Headquarter',
-    'headAddr' => ' 96 Ly Thuong Kiet st, Dong Hoi City, Quang Binh prov.',
+    'headAddr' => 'Airport junction, 16 Village, Loc Ninh, Dong Hoi City, Quang Binh Prov',
     'branch' => 'Branch',
     'branchAddr' => '119 Cau Giay st., Cau Giay dist., Ha Noi capt.',
     'overview' => 'Overview',

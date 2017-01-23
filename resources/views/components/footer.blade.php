@@ -38,15 +38,11 @@
                 <div class="widget-footer">
                     <h4>Tag cloud</h4>
                     <div class="widget-tags-wrap">
-                        <a href="index.html#" rel="tag" class="tag">Adventure</a>
-                        <a href="index.html#" rel="tag" class="tag">Romantic</a>
-                        <a href="index.html#" rel="tag" class="tag">Wildlife</a>
-                        <a href="index.html#" rel="tag" class="tag">Beach</a>
-                        <a href="index.html#" rel="tag" class="tag">Honeymoon</a>
-                        <a href="index.html#" rel="tag" class="tag">Island</a>
-                        <a href="index.html#" rel="tag" class="tag">Parks</a>
-                        <a href="index.html#" rel="tag" class="tag">Family</a>
-                        <a href="index.html#" rel="tag" class="tag">Travel</a>
+                        <a href="#" rel="tag" class="tag">Travel</a>
+                        <a href="#" rel="tag" class="tag">Honeymoon</a>
+                        <a href="#" rel="tag" class="tag">Hotel</a>
+                        <a href="#" rel="tag" class="tag">Restaurant</a>
+                        <a href="#" rel="tag" class="tag">Airplane Ticket</a>
                     </div>
                 </div>
             </div>

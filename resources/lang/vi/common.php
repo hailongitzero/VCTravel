@@ -27,7 +27,7 @@ return [
     'subcEmai' => 'Nhận email mới nhất.',
     'subcToday' => 'đang ký ngay',
     'headquarter' => 'Trụ Sở',
-    'headAddr' => ' 96 Lý Thường Kiệt, TP. Đồng Hới, Quảng Bình',
+    'headAddr' => 'Ngã 3 Sân bay, Thôn 16, Xã Lộc Ninh, Thành Phố Đồng Hới, TỈnh Quảng Bình',
     'branch' => 'Chi Nhánh',
     'branchAddr' => '119 Đường Cầu giấy, Quận Cầu Giấy, Hà Nội',
     'overview' => 'Tổng Quan',
