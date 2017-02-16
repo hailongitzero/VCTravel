@@ -26,16 +26,16 @@
                             <!-- Blog item-->
                             <div class="blog-item clearfix">
                                 <!-- Blog Image-->
-                                <div class="blog-media"><a href="blog-single.html">
+                                <div class="blog-media"><a href="{{ url('news-detail/'.$news->newsTxtLnk) }}">
                                         <div class="pic"><img src="{{$news->imgTp =='R' ? $news->imgUrl : url('/').$news->imgUrl}}" data-at2x="{{$news->imgTp =='R' ? substr($news->imgUrl, 0, -4).'@2x'.substr($news->imgUrl, -4, 4) : substr(url('/').$news->imgUrl, 0, -4).'@2x'.substr(url('/').$news->imgUrl, -4, 4)}}" alt="{{$news->imgAlt}}"></div></a></div>
                                 <!-- blog body-->
                                 <div class="blog-item-body clearfix">
-                                    <!-- title--><a href="blog-single.html">
+                                    <!-- title--><a href="{{ url('news-detail/'.$news->newsTxtLnk) }}">
                                         <h6 class="blog-title">{{$news->nwsTit}}</h6></a>
                                     <div class="blog-item-data">
                                         {{$news->crtDt}}</div>
                                     <!-- Text Intro-->
-                                    <p>{{$news->nwsShtCnt}}</p><a href="blog-single.html" class="blog-button">{{ trans('common.readMore') }}</a>
+                                    <p>{{$news->nwsShtCnt}}</p><a href="{{ url('news-detail/'.$news->newsTxtLnk) }}" class="blog-button">{{ trans('common.readMore') }}</a>
                                 </div>
                             </div>
                             <!-- ! Blog item-->

@@ -94,6 +94,14 @@ $(document).ready(function() {
     $('form.booking-form').children().on("click", function() {
         $(this).find('p.error').remove();
     })
+
+    $('.main-nav .inner-nav .search .close-button').on('click', function() {
+        if($('#txtSearch').val().length > 0){
+            $('#searchForm').submit();
+        }else{
+            $('.main-nav').removeClass('open-search');
+        }
+    })
 });
 // login popup
 function popup_tour_init(){

@@ -43,6 +43,10 @@ input {
 .small-section {
   padding: 50px 0; }
 
+.pin-nav {
+  position: fixed;
+  top: 0; }
+
 .inner-nav {
   font-family: 'Roboto', Open Sans; }
   .inner-nav ul li > a {
@@ -452,5 +456,20 @@ footer {
         bottom: 100px;
         width: 100px;
         right: -30px; } }
+
+.rsl-item {
+  margin-bottom: 5px; }
+  .rsl-item span {
+    font-size: 1rem;
+    color: red; }
+  .rsl-item a {
+    text-decoration: underline;
+    font-size: 1rem;
+    font-weight: 500; }
+    .rsl-item a:hover {
+      text-decoration: none;
+      color: #8bcf17; }
+  .rsl-item p {
+    background-color: #d1d1d1; }
 
 /*# sourceMappingURL=site.css.map */

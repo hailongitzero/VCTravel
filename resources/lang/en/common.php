@@ -18,6 +18,8 @@ return [
     |
     */
 
+    'home' => 'Home',
+    'searchResult' => 'Search Result',
     'search' => 'Search',
     'detail' => 'Detail',
     'readMore' => 'Readmore',

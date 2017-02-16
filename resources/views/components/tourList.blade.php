@@ -45,7 +45,7 @@
                             <div class="col-md-6">
                                 <div class="tours-search">
                                     <div class="search-wrap">
-                                        <input type="text" placeholder="Destination" class="form-control search-field">
+                                        <input id="tourSearch" name="tourSearch" type="text" placeholder="Destination" class="form-control search-field">
                                         <i class="flaticon-suntour-map search-icon"></i>
                                     </div>
                                     <div class="button-search">Search</div>

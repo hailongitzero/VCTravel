@@ -54,6 +54,10 @@ input{
   padding: 50px 0;
 }
 
+.pin-nav{
+  position: fixed;
+  top: 0;
+}
 .inner-nav{
   font-family: 'Roboto', Open Sans;
   ul{
@@ -694,5 +698,24 @@ footer{
       width: 100px;
       right: -30px;
     }
+  }
+}
+.rsl-item{
+  margin-bottom: 5px;
+  span{
+    font-size: 1rem;
+    color: red;
+  }
+  a{
+    text-decoration: underline;
+    font-size: 1rem;
+    font-weight: 500;
+    &:hover{
+      text-decoration: none;
+      color: #8bcf17;
+    }
+  }
+  p{
+    background-color: #d1d1d1;
   }
 }

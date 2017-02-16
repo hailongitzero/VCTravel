@@ -37,6 +37,10 @@ Route::get('tours/{id}', 'TourController@getTourListByGroup');
 /* Tour detail page route*/
 Route::get('tour-detail/{id}', 'TourController@getTourDetail');
 
+/* Tour search page route*/
+Route::post('search', 'CommonControllers@search');
+Route::get('search', 'CommonControllers@search');
+
 /* News List */
 Route::get('news', 'NewsController@getNewsList');
 

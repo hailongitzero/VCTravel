@@ -18,6 +18,8 @@ return [
     |
     */
 
+    'home' => 'Trang Chủ',
+    'searchResult' => 'Kết quả tìm kiếm',
     'search' => 'Tìm Kiếm',
     'detail' => 'Chi Tiết',
     'readMore' => 'Xem Thêm',

@@ -10,7 +10,7 @@
 <section style="background-image:url('/resources/assets/pic/breadcrumbs/bg-1.jpg');" class="breadcrumbs">
     <div class="container">
         <div class="text-left breadcrumbs-item">
-            <a href="{{url('')}}">home</a>
+            <a href="{{url('')}}">{{ trans('common.home') }}</a>
             <i>/</i>
             @if(isset($mdBreadCrumb))
                 @foreach($mdBreadCrumb as $brc)

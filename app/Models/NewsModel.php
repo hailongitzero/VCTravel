@@ -78,6 +78,7 @@ class NewsModel
                 'tb_news.NEWS_ID AS nwsId'
                 , 'tb_news.NEWS_TITLE_'.$localeCode.' AS nwsTit'
                 , 'tb_news.NEWS_SHRT_CNT_'.$localeCode.' AS nwsShtCnt'
+                , 'tb_news.NEWS_TEXT_LINK AS newsTxtLnk'
                 , 'tb_news.NEWS_HOT_YN AS nwsHotYn'
                 , 'tb_news.NEWS_ACT_YN AS nwsActYn'
                 , 'tb_news.NEWS_KEYWORD_'.$localeCode.' AS nwsKwd'

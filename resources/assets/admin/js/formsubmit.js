@@ -624,27 +624,21 @@ $(document).ready(function() {
         })
     }
 
-
-
     $('#btnViewVi').on('click', function(){
-        var formData = new FormData();
-        formData.append('pageCode', CKEDITOR.instances.pageCodeVi.getData());
-        formData.append('_token', $('meta[name="csrf-token"]').attr('content'));
-        formData.append('header', $('meta[name="csrf-token"]').attr('content'));
 
         $.ajax({
-            type: 'POST',
-            url: '/admin/page-review',
-            data: formData,
-            processData: false,  // tell jQuery not to process the data
-            contentType: false,  // tell jQuery not to set contentType
-            dataType: 'json',
-            success: function (response) {
 
-            },
-            error: function (xhr) {
-            }
         });
+
+        // var formData = new FormData();
+        // formData.append('pageCode', CKEDITOR.instances.pageCodeVi.getData());
+        // formData.append('_token', $('meta[name="csrf-token"]').attr('content'));
+        // formData.append('header', $('meta[name="csrf-token"]').attr('content'));
+        //
+        // localStorage.removeItem('pageCode');
+        // localStorage.setItem('pageCode', CKEDITOR.instances.pageCodeEn.getData());
+        //
+        // window.open('/page-review', '_blank');
     })
 
     $('#btnViewEn').on('click', function(){
@@ -657,6 +651,5 @@ $(document).ready(function() {
         localStorage.setItem('pageCode', CKEDITOR.instances.pageCodeEn.getData());
 
         window.open('/page-review', '_blank');
-        // window.location.href = "/page-review";
     })
 });

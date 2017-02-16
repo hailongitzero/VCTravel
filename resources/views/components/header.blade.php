@@ -94,10 +94,12 @@
                             <li>
                                 <div class="container">
                                     <div class="mn-wrap">
-                                        <form method="post" class="form">
+                                        <form id="searchForm" method="post" class="form" action="search">
                                             <div class="search-wrap">
-                                                <input type="text" placeholder="Where will you go next?" class="form-control search-field"><i class="flaticon-suntour-search search-icon"></i>
+                                                <input id="txtSearch" name="txtSearch" type="text" placeholder="Where will you go next?" class="form-control search-field"><i class="flaticon-suntour-search search-icon"></i>
                                             </div>
+                                            {{ csrf_field() }}
+                                            <input name="_method" type="hidden" value="POST">
                                         </form>
                                     </div>
                                     <div class="close-button"><span>{{ trans('common.search') }}</span></div>
